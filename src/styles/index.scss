@@ -1,0 +1,41 @@
+@import './spreadsheet.scss';
+
+body {
+  font-family: 'Poppins', sans-serif;
+
+  a {
+    color: #a04ef6;
+
+    span {
+      color: #000;
+    }
+
+    &:hover {
+      color: #fff;
+
+      span {
+        color: #fff;
+      }
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: #edf2f7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 100vh;
+  border: 3px solid #edf2f7;
+
+  &:hover {
+    background: #a0aec0;
+  }
+}
