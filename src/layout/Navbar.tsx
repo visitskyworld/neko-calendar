@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className=" w-full h-[50px]">
       <div className="flex justify-between my-0 mx-auto">
-        <span className="text-2xl font-bold">{getCurrentPage()}</span>
+        <span className="text-[40px] leading-[60px] font-semibold">{getCurrentPage()}</span>
       </div>
     </nav>
   );

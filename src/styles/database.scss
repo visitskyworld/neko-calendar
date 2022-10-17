@@ -1,0 +1,17 @@
+.gradient-mask {
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 50%,
+    transparent 100%
+  );
+}
+
+.project-container::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 444px) {
+  .mobile-pt-40 {
+    padding-top: 160px;
+  }
+}

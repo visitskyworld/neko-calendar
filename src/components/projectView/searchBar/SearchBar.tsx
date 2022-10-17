@@ -24,7 +24,7 @@ const SearchBar: React.FC = () => {
         <input
           type="search"
           id="default-search"
-          className="block p-4 pl-14 w-full text-sm rounded-lg border-solid border-[1px] border-black outline-none focus:outline-2 focus:outline-black"
+          className="block p-4 pl-14 w-full text-sm rounded-lg border-solid border-[1px] border-[#303030]/[0.1] placeholder-[#303030]/[0.3] italic outline-none focus:outline-2 focus:outline-black"
           placeholder="Search your project here"
           required
         />
