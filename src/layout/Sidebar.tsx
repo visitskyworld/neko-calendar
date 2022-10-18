@@ -36,7 +36,7 @@ const Sidebar: React.FC = () => {
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-center mb-16">
             <Link to="/">
-              <h2 className="text-3xl font-bold text-[#A04EF6]">LOGO</h2>
+              <h2 className="text-3xl font-bold text-[#a04ef6]">LOGO</h2>
             </Link>
           </div>
           <div className="flex-1">
@@ -58,7 +58,7 @@ const Sidebar: React.FC = () => {
                 Scott@hey.com
               </span>
             </div>
-            <img src="/assets/Icon.svg" alt="Setting Icon" />
+            <img src="/assets/settingIcon.svg" alt="Setting Icon" />
           </div>
         </div>
       </aside>

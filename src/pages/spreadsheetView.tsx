@@ -4,7 +4,7 @@ import { SearchOutlined } from '@ant-design/icons';
 
 import { NFTs } from '../redux/mocked-data';
 import { NFTData } from '../ts-generalTypes/InitialStateInterfaces';
-import makeIcon from '../helpers/makeIcon';
+import { makeColoredIcon } from '../components/utils/Icon';
 import makeBadge from '../helpers/makeBadge';
 
 const SpreadsheetView: React.FC = () => {
@@ -23,13 +23,7 @@ const SpreadsheetView: React.FC = () => {
     },
     {
       name: 'Price',
-      cell: (row) => (
-        <div>
-          {row.price.map((item, index) => (
-            <div key={index}>{item}</div>
-          ))}
-        </div>
-      ),
+      cell: (row) => <div>{row.publicPrice}</div>,
       sortable: true,
       maxWidth: '200px',
     },
@@ -47,9 +41,9 @@ const SpreadsheetView: React.FC = () => {
       name: 'Social Media',
       cell: (row) => (
         <div className="flex">
-          {row.socialMedia.map((item, index) => (
-            <div key={index}>{makeIcon(item, false)}</div>
-          ))}
+          {/* {row.socialMedia.map((item, index) => (
+            <div key={index}>{makeColoredIcon(item)}</div>
+          ))} */}
         </div>
       ),
       maxWidth: '200px',

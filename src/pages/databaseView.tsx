@@ -10,7 +10,9 @@ const DatabaseView: React.FC = () => {
       <div className="search-bar text-[#303030]/[0.3]">
         <SearchBar />
       </div>
-      <ProjectView />
+      <div className="h-[calc(100%-74px)] mt-8 overflow-y-auto">
+        <ProjectView />
+      </div>
     </div>
   );
 };

@@ -42,9 +42,15 @@ export interface NFTData {
   id: number;
   title: string;
   date: string;
+  bg: string;
   avatar: string;
   images: string[];
-  price: string[];
+  wlPrice: string;
+  wlTime: string;
+  wlDate: string;
+  publicPrice: string;
+  publicTime: string;
+  publicDate: string;
   type: string;
   supply: number;
   wallet: string;
