@@ -10,7 +10,6 @@ import { EventDetailsModalLayout } from '../EventDetailsModalLayout';
 import {
   selectCurrentSelectedEventId,
   setIsEventModalEditable,
-  selectCurrentCalendarView,
   selectModalDate,
 } from '../../../../redux/selectors';
 import {
@@ -26,7 +25,7 @@ import {
   getLocalStorageData,
   setLocalStorageData,
 } from '../../../../helpers/local-storage-utils';
-import makeIcon from '../../../../helpers/makeIcon';
+import { makeColoredIcon } from '../../../utils/Icon';
 
 export const EventDetailsPopup = () => {
   const dispatch = useDispatch();
@@ -116,9 +115,9 @@ export const EventDetailsPopup = () => {
       </div>
       <div className="w-full flex justify-between mb-[15px]">
         <div className="flex">
-          {makeIcon('Share', false)}
-          {makeIcon('Twitter', false)}
-          {makeIcon('Dribbble', false)}
+          {/* {makeColoredIcon('Share')}
+          {makeColoredIcon('Twitter')}
+          {makeColoredIcon('Dribbble')} */}
         </div>
         <div className="flex gap-5 cursor-move control-buttons">
           <Button

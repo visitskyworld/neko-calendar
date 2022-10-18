@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import SettingIcon from '../assets/Icon.svg';
 
 import SidebarItem from './SidebarItem';
 
@@ -32,12 +31,12 @@ const Sidebar: React.FC = () => {
   return (
     <div className="flex">
       <aside
-        className={`flex flex-col h-screen p-5 bg-white shadow w-56 transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in`}
+        className={`flex flex-col h-screen p-5 bg-[#F5F5F5] shadow w-56 transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in`}
       >
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-center mb-16">
             <Link to="/">
-              <h2 className="text-3xl font-bold text-[#A04EF6]">LOGO</h2>
+              <h2 className="text-3xl font-bold text-[#a04ef6]">LOGO</h2>
             </Link>
           </div>
           <div className="flex-1">
@@ -59,7 +58,7 @@ const Sidebar: React.FC = () => {
                 Scott@hey.com
               </span>
             </div>
-            <img src={SettingIcon} alt="Setting Icon" />
+            <img src="/assets/settingIcon.svg" alt="Setting Icon" />
           </div>
         </div>
       </aside>
