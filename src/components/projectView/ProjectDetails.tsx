@@ -3,7 +3,6 @@ import { HiChevronUp, HiChevronDown } from 'react-icons/hi';
 
 import { ProjectIcon } from '../utils/Icon';
 import { NFTData } from '../../ts-generalTypes/InitialStateInterfaces';
-import moment from 'moment';
 
 type Props = {
   data: NFTData;

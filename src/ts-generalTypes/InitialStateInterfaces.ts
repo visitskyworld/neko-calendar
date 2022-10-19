@@ -52,6 +52,7 @@ export interface NFTData {
   publicTime: string;
   publicDate: string;
   type: string;
+  color: string;
   supply: number;
   wallet: string;
   socialMedia: string[];

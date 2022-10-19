@@ -1,17 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DataTable, { TableColumn } from 'react-data-table-component';
 import { SearchOutlined } from '@ant-design/icons';
+import { HiChevronUp, HiChevronDown } from 'react-icons/hi';
 
 import { NFTs } from '../redux/mocked-data';
 import { NFTData } from '../ts-generalTypes/InitialStateInterfaces';
-import { makeColoredIcon } from '../components/utils/Icon';
-import makeBadge from '../helpers/makeBadge';
+import { ColoredIcon } from '../components/utils/Icon';
+import Badge from '../components/utils/Badge';
+import Star from '../components/utils/Star';
 
 const SpreadsheetView: React.FC = () => {
+  const start_and_end = (str: string) => {
+    if (str.length > 14) {
+      return (
+        str.substring(0, 6) + '...' + str.substring(str.length - 4, str.length)
+      );
+    }
+    return str;
+  };
+
+  const ReadMore = ({ children }: { children: string }) => {
+    const text = children;
+    const [isReadMore, setIsReadMore] = useState(true);
+    const toggleReadMore = () => {
+      setIsReadMore(!isReadMore);
+    };
+
+    return (
+      <p className="flex text-sm mb-0 w-full justify-between">
+        <span className="w-[93%]">
+          {isReadMore ? text.slice(0, 64) + '...' : text}
+        </span>
+        <span
+          className="cursor-pointer flex items-center font-bold w-[5%] ml-1"
+          onClick={toggleReadMore}
+        >
+          {isReadMore ? (
+            <HiChevronDown style={{ color: '#a04ef6' }} />
+          ) : (
+            <HiChevronUp style={{ color: '#a04ef6' }} />
+          )}
+        </span>
+      </p>
+    );
+  };
+
   const columns: TableColumn<NFTData>[] = [
     {
       name: 'Project Title',
-      selector: (row) => row.title,
+      cell: (row) => (
+        <div className="flex items-center">
+          <Star />
+          <span className="font-bold">{row.title}</span>
+        </div>
+      ),
       sortable: true,
       maxWidth: '200px',
     },
@@ -23,35 +65,45 @@ const SpreadsheetView: React.FC = () => {
     },
     {
       name: 'Price',
-      cell: (row) => <div>{row.publicPrice}</div>,
+      cell: (row) => (
+        <div className="flex flex-col">
+          <div className="flex">
+            <span className="font-bold mr-1">WL:</span>
+            <span>{row.wlPrice}</span>
+          </div>
+          <div className="flex">
+            <span className="font-bold mr-1">Public:</span>
+            <span>{row.publicPrice}</span>
+          </div>
+        </div>
+      ),
       sortable: true,
-      maxWidth: '200px',
+      maxWidth: '150px',
     },
     {
       name: 'Type',
-      cell: (row) => makeBadge(row.type),
-      maxWidth: '100px',
+      cell: (row) => <Badge label={row.type} color={row.color} />,
+      maxWidth: '150px',
     },
     {
       name: 'Wallet',
-      selector: (row) => row.wallet,
+      cell: (row) => <span>{start_and_end(row.wallet)}</span>,
       maxWidth: '200px',
     },
     {
       name: 'Social Media',
       cell: (row) => (
-        <div className="flex">
-          {/* {row.socialMedia.map((item, index) => (
-            <div key={index}>{makeColoredIcon(item)}</div>
-          ))} */}
+        <div className="flex items-center justify-evenly flex-wrap">
+          {row.socialMedia.map((item, index) => (
+            <ColoredIcon key={index} icon={item} biggerSize={true} />
+          ))}
         </div>
       ),
       maxWidth: '200px',
     },
     {
       name: 'Notes',
-      selector: (row) => row.notes,
-      maxWidth: '200px',
+      cell: (row) => <ReadMore>{row.notes}</ReadMore>,
     },
   ];
 
@@ -65,11 +117,11 @@ const SpreadsheetView: React.FC = () => {
 
   return (
     <div className="flex flex-col w-full h-[calc(100%-50px)]">
-      <div className="my-1">
-        <button className="bg-black text-white font-medium py-3 px-4 rounded-md mr-2">
+      <div className="my-8 flex justify-between">
+        <button className="bg-gradient-to-r from-[#a04ef6] to-[#f64ee5] text-white font-medium py-3 px-4 rounded-md mr-2">
           + Add Project
         </button>
-        <button className="px-4 py-3 rounded-xl border-solid border-2 border-black bg-white text-black hover:text-white hover:bg-black">
+        <button className="px-4 py-3 rounded-xl bg-gradient-to-r from-[#a04ef6] to-[#f64ee5] text-white">
           <SearchOutlined />
         </button>
       </div>

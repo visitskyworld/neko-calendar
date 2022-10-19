@@ -25,7 +25,7 @@ import {
   getLocalStorageData,
   setLocalStorageData,
 } from '../../../../helpers/local-storage-utils';
-import { makeColoredIcon } from '../../../utils/Icon';
+import { ColoredIcon } from '../../../utils/Icon';
 
 export const EventDetailsPopup = () => {
   const dispatch = useDispatch();

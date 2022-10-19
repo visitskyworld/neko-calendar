@@ -21,21 +21,20 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
-  height: 16px;
+  width: 8px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
   border-radius: 100vh;
-  background: #edf2f7;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e0;
+  background: #f6f5fa;
   border-radius: 100vh;
-  border: 3px solid #edf2f7;
 
   &:hover {
-    background: #a0aec0;
+    background: #d0cfd3;
   }
 }

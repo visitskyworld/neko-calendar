@@ -7,12 +7,18 @@ import {
   StarOutlined,
   EllipsisOutlined,
 } from '@ant-design/icons';
+import { AiFillYoutube } from 'react-icons/ai';
 
-type Props = {
+type ProjectProps = {
   icon: string;
 };
 
-export const ProjectIcon: React.FC<Props> = ({ icon }) => {
+type ColoredProps = {
+  icon: string;
+  biggerSize: boolean;
+};
+
+export const ProjectIcon: React.FC<ProjectProps> = ({ icon }) => {
   const [hovered, setHovered] = useState<boolean>(false);
 
   const icons: Record<string, { icon: React.ReactElement; text: string }> = {
@@ -79,4 +85,43 @@ export const ProjectIcon: React.FC<Props> = ({ icon }) => {
   );
 };
 
-export const makeColoredIcon = () => {};
+export const ColoredIcon: React.FC<ColoredProps> = ({ icon, biggerSize }) => {
+  const icons: Record<string, { icon: React.ReactElement }> = {
+    Twitter: {
+      icon: (
+        <TwitterOutlined
+          style={{ fontSize: biggerSize ? '200%' : '100%', color: '#4eaff6' }}
+        />
+      ),
+    },
+    Dribbble: {
+      icon: (
+        <img
+          src="/assets/dribbble.svg"
+          className={`w-[${biggerSize ? '30px' : '15px'}]`}
+          alt="Dribbble"
+        />
+      ),
+    },
+    YouTube: {
+      icon: (
+        <AiFillYoutube
+          style={{ fontSize: biggerSize ? '200%' : '100%', color: '#f64e4e' }}
+        />
+      ),
+    },
+    Star: {
+      icon: <StarOutlined style={{ fontSize: biggerSize ? '200%' : '100%' }} />,
+    },
+    Ellipsis: {
+      icon: (
+        <EllipsisOutlined style={{ fontSize: biggerSize ? '200%' : '100%' }} />
+      ),
+    },
+  };
+  return (
+    <React.Fragment>
+      <div className="mr-2">{icon && icons[icon].icon}</div>
+    </React.Fragment>
+  );
+};
