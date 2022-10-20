@@ -1,4 +1,6 @@
 @import './spreadsheet.scss';
+@import './database.scss';
+@import './home.scss';
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -22,19 +24,24 @@ body {
 
 ::-webkit-scrollbar {
   width: 8px;
-  height: 4px;
+  height: 30%;
 }
 
 ::-webkit-scrollbar-track {
-  border-radius: 100vh;
+  border-radius: 10px;
   background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #f6f5fa;
-  border-radius: 100vh;
+  background: #eae6fc;
+  border-radius: 10px;
+  height: 30%;
 
   &:hover {
     background: #d0cfd3;
   }
+}
+
+::-webkit-scrollbar-track-piece {
+  height: 30%;
 }

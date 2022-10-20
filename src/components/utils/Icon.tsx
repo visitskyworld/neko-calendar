@@ -16,6 +16,7 @@ type ProjectProps = {
 type ColoredProps = {
   icon: string;
   biggerSize: boolean;
+  className?: string;
 };
 
 export const ProjectIcon: React.FC<ProjectProps> = ({ icon }) => {
@@ -85,12 +86,17 @@ export const ProjectIcon: React.FC<ProjectProps> = ({ icon }) => {
   );
 };
 
-export const ColoredIcon: React.FC<ColoredProps> = ({ icon, biggerSize }) => {
+export const ColoredIcon: React.FC<ColoredProps> = ({
+  icon,
+  biggerSize,
+  className,
+}) => {
   const icons: Record<string, { icon: React.ReactElement }> = {
     Twitter: {
       icon: (
         <TwitterOutlined
           style={{ fontSize: biggerSize ? '200%' : '100%', color: '#4eaff6' }}
+          className={className}
         />
       ),
     },
@@ -98,7 +104,7 @@ export const ColoredIcon: React.FC<ColoredProps> = ({ icon, biggerSize }) => {
       icon: (
         <img
           src="/assets/dribbble.svg"
-          className={`w-[${biggerSize ? '30px' : '15px'}]`}
+          className={`w-[${biggerSize ? '30px' : '15px'}] ${className}`}
           alt="Dribbble"
         />
       ),
@@ -107,11 +113,17 @@ export const ColoredIcon: React.FC<ColoredProps> = ({ icon, biggerSize }) => {
       icon: (
         <AiFillYoutube
           style={{ fontSize: biggerSize ? '200%' : '100%', color: '#f64e4e' }}
+          className={className}
         />
       ),
     },
     Star: {
-      icon: <StarOutlined style={{ fontSize: biggerSize ? '200%' : '100%' }} />,
+      icon: (
+        <StarOutlined
+          style={{ fontSize: biggerSize ? '200%' : '100%' }}
+          className={className}
+        />
+      ),
     },
     Ellipsis: {
       icon: (

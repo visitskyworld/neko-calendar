@@ -1,6 +1,5 @@
 import React from 'react';
 
-import '../styles/database.scss';
 import ProjectView from '../components/projectView/ProjectView';
 import SearchBar from '../components/projectView/searchBar/SearchBar';
 

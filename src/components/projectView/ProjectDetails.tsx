@@ -87,7 +87,7 @@ const ProjectDetails: React.FC<Props> = ({ data }) => {
           </div>
         </div>
         <div className="xl:w-3/12 w-full flex flex-col xl:justify-end xl:items-end items-start mt-4">
-          <button className="bg-gradient-to-r from-[#a04ef6] to-[#f64ee5] text-xl text-white font-signika font-medium py-4 px-8 rounded-md mb-5">
+          <button className="bg-gradient-to-r from-[#a04ef6] to-[#f64ee5] text-xl text-white font-signika font-medium py-4 px-8 rounded-md mb-5 hover:shadow-[0px_6px_24px_-2px_rgba(0,0,0,0.3)] ease-in-out duration-150">
             + Add Project
           </button>
           <div className="flex items-center">

@@ -1,3 +1,4 @@
+import { string } from 'yup';
 import { DayType } from '../ts-generalTypes/propTypes';
 export type CalendarEventData = {
   uniqueEventId: string;
@@ -57,4 +58,12 @@ export interface NFTData {
   wallet: string;
   socialMedia: string[];
   notes: string;
+}
+
+export interface MintData {
+  mint: string;
+  title?: string;
+  date?: string;
+  description?: string;
+  twitter?: string;
 }

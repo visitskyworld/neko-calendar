@@ -3,6 +3,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 import { NFTData } from '../../ts-generalTypes/InitialStateInterfaces';
+import { CustomLeftArrow, CustomRightArrow } from '../utils/CustomArrow';
 
 type Props = {
   data: NFTData;
@@ -50,7 +51,13 @@ const Collection: React.FC<Props> = ({ data }) => {
   return (
     <div className="flex flex-col w-full">
       <span className="font-semibold text-3xl mb-3">Media</span>
-      <Carousel swipeable={false} draggable={false} responsive={responsive}>
+      <Carousel
+        swipeable={false}
+        draggable={false}
+        responsive={responsive}
+        customLeftArrow={<CustomLeftArrow />}
+        customRightArrow={<CustomRightArrow />}
+      >
         {data.images.map((img, index) => {
           return (
             <div

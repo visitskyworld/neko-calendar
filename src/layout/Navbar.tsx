@@ -6,7 +6,7 @@ const Navbar: React.FC = () => {
   const getCurrentPage = () => {
     switch (location.pathname) {
       case '/':
-        return 'Home';
+        return 'Hello, Elijah!';
       case '/calendar':
         return 'Calendar View';
       case '/spreadsheet':
@@ -19,7 +19,9 @@ const Navbar: React.FC = () => {
   return (
     <nav className=" w-full h-[50px]">
       <div className="flex justify-between my-0 mx-auto">
-        <span className="text-[40px] leading-[60px] font-semibold">{getCurrentPage()}</span>
+        <span className="text-[40px] leading-[60px] font-semibold">
+          {getCurrentPage()}
+        </span>
       </div>
     </nav>
   );

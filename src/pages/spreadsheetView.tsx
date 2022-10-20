@@ -118,10 +118,10 @@ const SpreadsheetView: React.FC = () => {
   return (
     <div className="flex flex-col w-full h-[calc(100%-50px)]">
       <div className="my-8 flex justify-between">
-        <button className="bg-gradient-to-r from-[#a04ef6] to-[#f64ee5] text-white font-medium py-3 px-4 rounded-md mr-2">
+        <button className="bg-gradient-to-r from-[#a04ef6] to-[#f64ee5] text-white font-medium py-3 px-4 rounded-md mr-2 hover:shadow-[0px_6px_24px_-2px_rgba(0,0,0,0.3)] ease-in-out duration-150">
           + Add Project
         </button>
-        <button className="px-4 py-3 rounded-xl bg-gradient-to-r from-[#a04ef6] to-[#f64ee5] text-white">
+        <button className="px-4 py-3 rounded-xl bg-gradient-to-r from-[#a04ef6] to-[#f64ee5] text-white hover:shadow-[0px_6px_24px_-2px_rgba(0,0,0,0.3)] ease-in-out duration-150">
           <SearchOutlined />
         </button>
       </div>

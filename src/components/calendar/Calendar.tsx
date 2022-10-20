@@ -23,7 +23,7 @@ const Calendar: React.FC = () => {
   const currentCalendarView = useSelector(selectCurrentCalendarView);
 
   return (
-    <div className="w-9/12 h-[calc(100%-50px)] bg-inherit">
+    <div className="w-9/12 mt-8 h-[calc(100%-82px)] bg-inherit">
       <Header />
       <div
         className={`w-full h-[calc(100%-82px)] ${

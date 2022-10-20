@@ -1,6 +1,7 @@
 import {
   CalendarEventData,
   NFTData,
+  MintData,
 } from '../ts-generalTypes/InitialStateInterfaces';
 
 export const mockedEventData: CalendarEventData[] = [
@@ -443,5 +444,122 @@ export const NFTs: NFTData[] = [
     socialMedia: ['Dribbble', 'YouTube'],
     notes:
       'A couple of recently deceased ghosts contract the services of a "bio-exorcist" in order to remove the obnoxious new owners of their house.',
+  },
+];
+
+export const UpComingMints: MintData[] = [
+  {
+    mint: '../assets/img/up_mint1.png',
+    title: 'Slack',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/up_mint2.png',
+    title: 'Primates',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/up_mint3.png',
+    title: 'Sneakers',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/up_mint2.png',
+    title: 'Primates',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/up_mint3.png',
+    title: 'Sneakers',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/up_mint1.png',
+    title: 'Slack',
+    date: '13/08/22',
+  },
+];
+
+export const Collabs: MintData[] = [
+  {
+    mint: '../assets/img/collab1.png',
+    description:
+      'MareBears x Neko no Mori😻 We’re partnering with @MareBears to give ...',
+    twitter: 'www.twitter.com',
+  },
+  {
+    mint: '../assets/img/collab2.png',
+    description:
+      'Shellz Orb X Neko WL GIVEAWAY! 😻 Partnering up with @ShellzOrb to gi...',
+    twitter: 'www.twitter.com',
+  },
+  {
+    mint: '../assets/img/collab3.png',
+    description:
+      'Children of Ukiyo x Neko no Mori😻 We’re partnering with @ChildrenofUkiyo...',
+    twitter: 'www.twitter.com',
+  },
+  {
+    mint: '../assets/img/collab4.png',
+    description:
+      'Hameer Hideout x Neko no Mori😻 We’re partnering with @FlowerFam to giv ...',
+    twitter: 'www.twitter.com',
+  },
+  {
+    mint: '../assets/img/collab2.png',
+    description:
+      'Shellz Orb X Neko WL GIVEAWAY! 😻 Partnering up with @ShellzOrb to gi...',
+    twitter: 'www.twitter.com',
+  },
+  {
+    mint: '../assets/img/collab1.png',
+    description:
+      'MareBears x Neko no Mori😻 We’re partnering with @MareBears to give ...',
+    twitter: 'www.twitter.com',
+  },
+  {
+    mint: '../assets/img/collab4.png',
+    description:
+      'Hameer Hideout x Neko no Mori😻 We’re partnering with @FlowerFam to giv ...',
+    twitter: 'www.twitter.com',
+  },
+  {
+    mint: '../assets/img/collab3.png',
+    description:
+      'Children of Ukiyo x Neko no Mori😻 We’re partnering with @ChildrenofUkiyo...',
+    twitter: 'www.twitter.com',
+  },
+];
+
+export const PopMints: MintData[] = [
+  {
+    mint: '../assets/img/pop_mint1.png',
+    title: 'Little things',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/pop_mint2.png',
+    title: 'Chakra',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/pop_mint3.png',
+    title: 'Primates',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/pop_mint1.png',
+    title: 'Little things',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/pop_mint2.png',
+    title: 'Chakra',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/pop_mint3.png',
+    title: 'Primates',
+    date: '13/08/22',
   },
 ];
