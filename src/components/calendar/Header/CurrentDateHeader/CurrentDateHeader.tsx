@@ -14,7 +14,7 @@ export const CurrentDateHeader = () => {
   );
 
   return (
-    <div className="text-inherit font-sans text-[22px] font-bold tracking-normal leading-7 whitespace-nowrap flex items-center mx-4">
+    <div className="current-date-header text-inherit font-sans text-[22px] font-bold tracking-normal leading-7 whitespace-nowrap flex items-center mx-4">
       {`${date.toLocaleString('en', { month: 'long' })} ${date.getFullYear()}`}
     </div>
   );

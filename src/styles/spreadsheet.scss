@@ -2,7 +2,56 @@
   overflow-y: auto !important;
 }
 
-.eUeqdG {
+.rdt_TableHeader {
+  background-color: transparent;
+}
+
+.rdt_TableHeadRow {
+  background-color: #f1eeff !important;
+  border-bottom: 0 !important;
+  border-radius: 20px 20px 0 0;
   font-size: 16px;
   font-weight: 700;
+}
+
+.rdt_TableBody {
+  border: solid 1px rgba(48, 48, 48, 0.1);
+  border-top: 0;
+  border-radius: 0 0 20px 20px;
+  font-size: 12px;
+}
+
+.rdt_TableRow {
+  font-size: 14px !important;
+}
+
+.rdt_TableRow:not(:last-of-type) {
+  border-bottom: solid 1px rgba(48, 48, 48, 0.1) !important;
+}
+
+.rdt_TableRow:last-child {
+  border: 0 !important;
+  border-radius: 0 0 20px 20px;
+}
+
+@media only screen and (min-width: 1920px) {
+  .bnAwAJ {
+    max-width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 1571px) and (max-width: 1919px) {
+  .bnAwAJ {
+    max-width: 300px !important;
+  }
+}
+
+@media only screen and (min-width: 1120px) and (max-width: 1570px) {
+  .bnAwAJ {
+    max-width: 200px !important;
+  }
+}
+
+.rdt_Pagination {
+  border: 0 !important;
 }

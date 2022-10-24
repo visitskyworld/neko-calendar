@@ -1,4 +1,6 @@
 @import './spreadsheet.scss';
+@import './database.scss';
+@import './home.scss';
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -21,21 +23,25 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
-  height: 16px;
+  width: 8px;
+  height: 30%;
 }
 
 ::-webkit-scrollbar-track {
-  border-radius: 100vh;
-  background: #edf2f7;
+  border-radius: 10px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e0;
-  border-radius: 100vh;
-  border: 3px solid #edf2f7;
+  background: #eae6fc;
+  border-radius: 10px;
+  height: 30%;
 
   &:hover {
-    background: #a0aec0;
+    background: #d0cfd3;
   }
+}
+
+::-webkit-scrollbar-track-piece {
+  height: 30%;
 }

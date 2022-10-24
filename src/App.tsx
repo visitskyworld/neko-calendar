@@ -6,6 +6,7 @@ import Layout from './layout/Main';
 import CalendarView from './pages/calendarView';
 import SpreadsheetView from './pages/spreadsheetView';
 import DatabaseView from './pages/databaseView';
+import HomeView from './pages/HomeView';
 
 import './styles/index.scss';
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="calendar" element={<CalendarView />} />
           <Route path="spreadsheet" element={<SpreadsheetView />} />
           <Route path="database" element={<DatabaseView />} />
+          <Route path="/" element={<HomeView />} />
         </Routes>
       </Layout>
       <ToastContainer />

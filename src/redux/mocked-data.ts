@@ -1,7 +1,8 @@
 import {
   CalendarEventData,
   NFTData,
-} from '../ts-generalTypes/InitialStateInterfaces';
+  MintData,
+} from '../ts-generalTypes/InitialStateInterfaces'
 
 export const mockedEventData: CalendarEventData[] = [
   {
@@ -33,7 +34,7 @@ export const mockedEventData: CalendarEventData[] = [
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing Lorem ipsum dolor sit amet consectetur adipisicing Lorem ipsum dolor sit amet consectetur adipisicing Lorem ipsum dolor sit amet consectetur adipisicing Lorem ipsum dolor sit amet consectetur adipisicing',
   },
-];
+]
 
 export const NFTs: NFTData[] = [
   {
@@ -62,17 +63,18 @@ export const NFTs: NFTData[] = [
     publicPrice: '0.1',
     publicTime: '12:30',
     publicDate: '15/08/22',
-    type: 'label1',
+    type: 'label',
+    color: '#e3e6ff',
     wallet: '0xBC4Cd93Xjf13D',
     supply: 3333,
-    socialMedia: ['Twitter', 'Facebook', 'Instagram'],
+    socialMedia: ['Twitter', 'Dribbble'],
     notes:
       'A couple of recently deceased ghosts contract the services of a "bio-exorcist" in order to remove the obnoxious new owners of their house.',
   },
   {
     id: 2,
-    title: 'Neko No Mori(2)',
-    date: '08/12/22',
+    title: 'Punkers',
+    date: '02/02/23',
     bg: '../assets/img/neko_no_mori.png',
     avatar: '../assets/img/neko1.png',
     images: [
@@ -95,17 +97,18 @@ export const NFTs: NFTData[] = [
     publicPrice: '0.1',
     publicTime: '12:30',
     publicDate: '15/08/22',
-    type: 'label2',
+    type: 'label',
+    color: '#ffeae3',
     wallet: '0xBC4Cd93Xjf13D',
     supply: 2322,
-    socialMedia: ['Twitter'],
+    socialMedia: ['Twitter', 'Dribbble', 'YouTube'],
     notes:
       'A couple of recently deceased ghosts contract the services of a "bio-exorcist" in order to remove the obnoxious new owners of their house.',
   },
   {
     id: 3,
-    title: 'Neko No Mori(3)',
-    date: '08/12/22',
+    title: 'LilyPads',
+    date: '08/11/22',
     bg: '../assets/img/neko_no_mori.png',
     avatar: '../assets/img/neko1.png',
     images: [
@@ -128,17 +131,18 @@ export const NFTs: NFTData[] = [
     publicPrice: '0.1',
     publicTime: '12:30',
     publicDate: '15/08/22',
-    type: 'label3',
+    type: 'label',
+    color: '#e7f6fc',
     wallet: '0xBC4Cd93Xjf13D',
     supply: 444,
-    socialMedia: ['Twitter', 'Facebook'],
+    socialMedia: ['Twitter', 'Dribbble'],
     notes:
       'A couple of recently deceased ghosts contract the services of a "bio-exorcist" in order to remove the obnoxious new owners of their house.',
   },
   {
     id: 4,
-    title: 'Neko No Mori(4)',
-    date: '08/12/22',
+    title: 'Chakra',
+    date: '02/12/22',
     bg: '../assets/img/neko_no_mori.png',
     avatar: '../assets/img/neko1.png',
     images: [
@@ -161,17 +165,18 @@ export const NFTs: NFTData[] = [
     publicPrice: '0.1',
     publicTime: '12:30',
     publicDate: '15/08/22',
-    type: 'label2',
+    type: 'label',
+    color: '#ffeae3',
     wallet: '0xBC4Cd93Xjf13D',
     supply: 2321,
-    socialMedia: ['Twitter', 'Facebook', 'Instagram'],
+    socialMedia: ['Dribbble', 'YouTube'],
     notes:
       'A couple of recently deceased ghosts contract the services of a "bio-exorcist" in order to remove the obnoxious new owners of their house.',
   },
   {
     id: 5,
-    title: 'Neko No Mori(5)',
-    date: '08/12/22',
+    title: 'Slimes',
+    date: '10/12/22',
     bg: '../assets/img/neko_no_mori.png',
     avatar: '../assets/img/neko1.png',
     images: [
@@ -194,17 +199,18 @@ export const NFTs: NFTData[] = [
     publicPrice: '0.1',
     publicTime: '12:30',
     publicDate: '15/08/22',
-    type: 'label1',
+    type: 'label',
+    color: '#e3e6ff',
     wallet: '0xBC4Cd93Xjf13D',
     supply: 3322,
-    socialMedia: ['Twitter', 'Instagram'],
+    socialMedia: ['Twitter'],
     notes:
       'A couple of recently deceased ghosts contract the services of a "bio-exorcist" in order to remove the obnoxious new owners of their house.',
   },
   {
     id: 6,
-    title: 'Neko No Mori(6)',
-    date: '08/12/22',
+    title: 'Cats&Dogs',
+    date: '16/10/22',
     bg: '../assets/img/neko_no_mori.png',
     avatar: '../assets/img/neko1.png',
     images: [
@@ -227,16 +233,17 @@ export const NFTs: NFTData[] = [
     publicPrice: '0.1',
     publicTime: '12:30',
     publicDate: '15/08/22',
-    type: 'label1',
+    type: 'label',
+    color: '#e7f6fc',
     wallet: '0xBC4Cd93Xjf13D',
     supply: 5743,
-    socialMedia: ['Twitter', 'Facebook', 'Instagram'],
+    socialMedia: ['Twitter', 'Dribbble', 'YouTube'],
     notes:
       'A couple of recently deceased ghosts contract the services of a "bio-exorcist" in order to remove the obnoxious new owners of their house.',
   },
   {
     id: 7,
-    title: 'Neko No Mori(7)',
+    title: 'Kornis',
     bg: '../assets/img/neko_no_mori.png',
     date: '08/12/22',
     avatar: '../assets/img/neko1.png',
@@ -260,17 +267,18 @@ export const NFTs: NFTData[] = [
     publicPrice: '0.1',
     publicTime: '12:30',
     publicDate: '15/08/22',
-    type: 'label3',
+    type: 'label',
+    color: '#f8e3ff',
     wallet: '0xBC4Cd93Xjf13D',
     supply: 3465,
-    socialMedia: ['Instagram'],
+    socialMedia: ['Twitter', 'YouTube'],
     notes:
       'A couple of recently deceased ghosts contract the services of a "bio-exorcist" in order to remove the obnoxious new owners of their house.',
   },
   {
     id: 8,
-    title: 'Neko No Mori(8)',
-    date: '08/12/22',
+    title: 'Loops',
+    date: '01/02/23',
     bg: '../assets/img/neko_no_mori.png',
     avatar: '../assets/img/neko1.png',
     images: [
@@ -293,17 +301,18 @@ export const NFTs: NFTData[] = [
     publicPrice: '0.1',
     publicTime: '12:30',
     publicDate: '15/08/22',
-    type: 'label4',
+    type: 'label',
+    color: '#e3e6ff',
     wallet: '0xBC4Cd93Xjf13D',
     supply: 6453,
-    socialMedia: ['Twitter', 'Instagram'],
+    socialMedia: ['YouTube'],
     notes:
       'A couple of recently deceased ghosts contract the services of a "bio-exorcist" in order to remove the obnoxious new owners of their house.',
   },
   {
     id: 9,
-    title: 'Neko No Mori(9)',
-    date: '08/12/22',
+    title: 'Glass',
+    date: '08/01/23',
     bg: '../assets/img/neko_no_mori.png',
     avatar: '../assets/img/neko1.png',
     images: [
@@ -326,17 +335,18 @@ export const NFTs: NFTData[] = [
     publicPrice: '0.1',
     publicTime: '12:30',
     publicDate: '15/08/22',
-    type: 'label2',
+    type: 'label',
+    color: '#ffeae3',
     wallet: '0xBC4Cd93Xjf13D',
     supply: 2422,
-    socialMedia: ['Facebook', 'Instagram'],
+    socialMedia: ['Twitter', 'Dribbble'],
     notes:
       'A couple of recently deceased ghosts contract the services of a "bio-exorcist" in order to remove the obnoxious new owners of their house.',
   },
   {
     id: 10,
-    title: 'Neko No Mori(10)',
-    date: '08/12/22',
+    title: 'Chidori',
+    date: '08/08/21',
     bg: '../assets/img/neko_no_mori.png',
     avatar: '../assets/img/neko1.png',
     images: [
@@ -359,17 +369,18 @@ export const NFTs: NFTData[] = [
     publicPrice: '0.1',
     publicTime: '12:30',
     publicDate: '15/08/22',
-    type: 'label3',
+    type: 'label',
+    color: '#e3e6ff',
     wallet: '0xBC4Cd93Xjf13D',
     supply: 5856,
-    socialMedia: ['Twitter', 'Facebook', 'Instagram'],
+    socialMedia: ['Twitter', 'Dribbble', 'YouTube'],
     notes:
       'A couple of recently deceased ghosts contract the services of a "bio-exorcist" in order to remove the obnoxious new owners of their house.',
   },
   {
     id: 11,
-    title: 'Neko No Mori(11)',
-    date: '08/12/22',
+    title: 'Kamui',
+    date: '04/11/20',
     bg: '../assets/img/neko_no_mori.png',
     avatar: '../assets/img/neko1.png',
     images: [
@@ -392,17 +403,18 @@ export const NFTs: NFTData[] = [
     publicPrice: '0.1',
     publicTime: '12:30',
     publicDate: '15/08/22',
-    type: 'label3',
+    type: 'label',
+    color: '#ffeae3',
     wallet: '0xBC4Cd93Xjf13D',
     supply: 9654,
-    socialMedia: ['Facebook'],
+    socialMedia: ['Dribbble'],
     notes:
       'A couple of recently deceased ghosts contract the services of a "bio-exorcist" in order to remove the obnoxious new owners of their house.',
   },
   {
     id: 12,
-    title: 'Neko No Mori(12)',
-    date: '08/12/22',
+    title: 'Junk',
+    date: '08/06/22',
     bg: '../assets/img/neko_no_mori.png',
     avatar: '../assets/img/neko1.png',
     images: [
@@ -425,11 +437,129 @@ export const NFTs: NFTData[] = [
     publicPrice: '0.1',
     publicTime: '12:30',
     publicDate: '15/08/22',
-    type: 'label4',
+    type: 'label',
+    color: '#f8e3ff',
     wallet: '0xBC4Cd93Xjf13D',
     supply: 5555,
-    socialMedia: ['Twitter', 'Facebook', 'Instagram'],
+    socialMedia: ['Dribbble', 'YouTube'],
     notes:
       'A couple of recently deceased ghosts contract the services of a "bio-exorcist" in order to remove the obnoxious new owners of their house.',
   },
-];
+]
+
+export const UpComingMints: MintData[] = [
+  {
+    mint: '../assets/img/up_mint1.png',
+    title: 'Slack',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/up_mint2.png',
+    title: 'Primates',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/up_mint3.png',
+    title: 'Sneakers',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/up_mint2.png',
+    title: 'Primates',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/up_mint3.png',
+    title: 'Sneakers',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/up_mint1.png',
+    title: 'Slack',
+    date: '13/08/22',
+  },
+]
+
+export const Collabs: MintData[] = [
+  {
+    mint: '../assets/img/collab1.png',
+    description:
+      'MareBears x Neko no Mori😻 We’re partnering with @MareBears to give ...',
+    twitter: 'https://www.twitter.com',
+  },
+  {
+    mint: '../assets/img/collab2.png',
+    description:
+      'Shellz Orb X Neko WL GIVEAWAY! 😻 Partnering up with @ShellzOrb to gi...',
+    twitter: 'https://www.twitter.com',
+  },
+  {
+    mint: '../assets/img/collab3.png',
+    description:
+      'Children of Ukiyo x Neko no Mori😻 We’re partnering with @ChildrenofUkiyo...',
+    twitter: 'https://www.twitter.com',
+  },
+  {
+    mint: '../assets/img/collab4.png',
+    description:
+      'Hameer Hideout x Neko no Mori😻 We’re partnering with @FlowerFam to giv ...',
+    twitter: 'https://www.twitter.com',
+  },
+  {
+    mint: '../assets/img/collab2.png',
+    description:
+      'Shellz Orb X Neko WL GIVEAWAY! 😻 Partnering up with @ShellzOrb to gi...',
+    twitter: 'https://www.twitter.com',
+  },
+  {
+    mint: '../assets/img/collab1.png',
+    description:
+      'MareBears x Neko no Mori😻 We’re partnering with @MareBears to give ...',
+    twitter: 'https://www.twitter.com',
+  },
+  {
+    mint: '../assets/img/collab4.png',
+    description:
+      'Hameer Hideout x Neko no Mori😻 We’re partnering with @FlowerFam to giv ...',
+    twitter: 'https://www.twitter.com',
+  },
+  {
+    mint: '../assets/img/collab3.png',
+    description:
+      'Children of Ukiyo x Neko no Mori😻 We’re partnering with @ChildrenofUkiyo...',
+    twitter: 'https://www.twitter.com',
+  },
+]
+
+export const PopMints: MintData[] = [
+  {
+    mint: '../assets/img/pop_mint1.png',
+    title: 'Little things',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/pop_mint2.png',
+    title: 'Chakra',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/pop_mint3.png',
+    title: 'Primates',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/pop_mint1.png',
+    title: 'Little things',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/pop_mint2.png',
+    title: 'Chakra',
+    date: '13/08/22',
+  },
+  {
+    mint: '../assets/img/pop_mint3.png',
+    title: 'Primates',
+    date: '13/08/22',
+  },
+]

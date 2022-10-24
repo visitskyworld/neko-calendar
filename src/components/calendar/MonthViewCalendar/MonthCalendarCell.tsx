@@ -20,10 +20,11 @@ type MonthCalendarCellProps = Pick<
   'id' | 'day' | 'isCurrentMonth' | 'isToday' | 'size'
 > & {
   children?: JSX.Element;
+  isHome?: boolean;
 };
 
 export const MonthCalendarCell: React.FC<MonthCalendarCellProps> = (props) => {
-  const { id, day, isCurrentMonth, isToday, size } = props;
+  const { id, day, isCurrentMonth, isToday, size, isHome } = props;
   const dispatch = useDispatch();
   const listOfEventsInStorage = useSelector(setListOfEventsInStorage)! || [];
   const listOfEventsThisDay = listOfEventsInStorage.filter(
@@ -31,7 +32,7 @@ export const MonthCalendarCell: React.FC<MonthCalendarCellProps> = (props) => {
   );
   const clickOnCellHandler = (event: React.MouseEvent) => {
     const currentTarget = event.target as HTMLDivElement;
-    if (currentTarget.className.includes('badge')) {
+    if (!isHome && currentTarget.className.includes('badge')) {
       dispatch(changeCalendarView('day'));
       dispatch(setSelectedDate(id));
     }
@@ -39,8 +40,8 @@ export const MonthCalendarCell: React.FC<MonthCalendarCellProps> = (props) => {
     if (!currentTarget.className.includes('day-cell')) {
       return;
     } else {
-      dispatch(setSelectedEventId(id));
-      dispatch(openEventCreatorWindow());
+      !isHome && dispatch(setSelectedEventId(id));
+      !isHome && dispatch(openEventCreatorWindow());
     }
   };
   let uniqueKey = uniqid();
@@ -69,7 +70,7 @@ export const MonthCalendarCell: React.FC<MonthCalendarCellProps> = (props) => {
         </span>
       </div>
       {size === 'small' && listOfEventsThisDay.length > 0 ? (
-        <div className="w-[auto] h-[2px] bg-[#1192f6] my-0 mx-auto"></div>
+        <div className="badge-cell w-auto h-[2px] bg-[#1192f6] my-0 mx-auto"></div>
       ) : (
         listOfEventsThisDay.map((event: CalendarEventData) => (
           <MonthCalendarEvent key={uniqueKey} events={event} size={size} />

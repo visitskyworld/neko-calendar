@@ -1,7 +1,7 @@
-# Neko Calendar
+# Neko Dev Tool
 
-This is a calendar tool that makes schedules and reminds you about when to mint
-a project so that you can stay on top of your mints.
+This is a dev tool that makes schedules and reminds you about when to mint a
+project so that you can stay on top of your mints.
 
 ## Available Scripts
 
