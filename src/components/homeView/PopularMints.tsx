@@ -40,7 +40,11 @@ const PopularMints: React.FC = () => {
                       : ''
                   }`}
                 >
-                  <img src={item.mint} className="w-full rounded-[20px] mb-4" />
+                  <img
+                    src={item.mint}
+                    className="w-full rounded-[20px] mb-4"
+                    alt="mint"
+                  />
                   <span
                     className={`font-semibold text-base ${
                       isPrev || isNext ? 'hidden' : ''
@@ -74,7 +78,7 @@ const PopularMints: React.FC = () => {
           />
         </div>
       </div>
-      <button className="absolute bottom-0 translate-y-[45px] bg-gradient-to-r from-[#a04ef6] to-[#f64ee5] text-xl text-white font-signika font-medium py-4 px-8 rounded-md mb-5 hover:shadow-[0px_6px_24px_-2px_rgba(0,0,0,0.3)] ease-in-out duration-150 z-[1001]">
+      <button className="absolute bottom-0 translate-y-[35px] bg-gradient-to-r from-[#a04ef6] to-[#f64ee5] text-xl text-white font-signika font-medium py-3 px-8 rounded-md mb-5 hover:shadow-[0px_6px_24px_-2px_rgba(0,0,0,0.3)] ease-in-out duration-150 z-[1001]">
         + Add Project
       </button>
     </div>

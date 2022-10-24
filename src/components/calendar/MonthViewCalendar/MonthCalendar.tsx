@@ -13,10 +13,11 @@ import { DayType } from '../../../ts-generalTypes/propTypes';
 
 interface MonthCalendarProps {
   size: string;
+  isHome?: boolean;
   calendarMatrix?: DayType[][];
 }
 
-const Calendar = ({ size, calendarMatrix }: MonthCalendarProps) => {
+const Calendar = ({ size, isHome, calendarMatrix }: MonthCalendarProps) => {
   const weekDaysName = useSelector(selectWeekDaysName);
   const currentCalendar = useSelector(selectCurrentCalendar);
   const calendar = calendarMatrix ? calendarMatrix : currentCalendar!;
@@ -35,6 +36,7 @@ const Calendar = ({ size, calendarMatrix }: MonthCalendarProps) => {
           isCurrentMonth={isCurrentMonth}
           isToday={isToday}
           size={size}
+          isHome={isHome}
         />
       ))}
     </div>
@@ -42,7 +44,7 @@ const Calendar = ({ size, calendarMatrix }: MonthCalendarProps) => {
 
   return (
     <div
-      className={`w-full h-full font-[1em] ${
+      className={`month-calendar w-full h-full font-[1em] ${
         currentCalendarView === 'month'
           ? 'border-solid border-[1px] rounded-[20px] overflow-hidden'
           : ''
@@ -51,7 +53,7 @@ const Calendar = ({ size, calendarMatrix }: MonthCalendarProps) => {
       <ErrorBoundary>
         <div
           key={0}
-          className="flex w-full h-[5%] relative top-0 left-0 right-0 bottom-0"
+          className="calendar-header-row flex w-full h-[5%] relative top-0 left-0 right-0 bottom-0"
         >
           {weekDaysName.map(({ id, day }) => (
             <CalendarHeaderCell
@@ -59,6 +61,7 @@ const Calendar = ({ size, calendarMatrix }: MonthCalendarProps) => {
               id={id}
               day={day}
               size={size}
+              isHome={isHome}
             />
           ))}
         </div>

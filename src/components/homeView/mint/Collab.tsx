@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-import { MintData } from '../../../ts-generalTypes/InitialStateInterfaces';
-import { ColoredIcon } from '../../utils/Icon';
+import { MintData } from '../../../ts-generalTypes/InitialStateInterfaces'
+import { ColoredIcon } from '../../utils/Icon'
 
 const Collab: React.FC<{ collab: MintData }> = ({ collab }) => {
   return (
@@ -19,18 +19,18 @@ const Collab: React.FC<{ collab: MintData }> = ({ collab }) => {
           </span>
         </div>
         <div className="w-full flex justify-between px-3 pt-5 pb-3">
-          <Link to={collab.twitter!}>
+          <a href={collab.twitter!} target="_blank">
             <ColoredIcon
               icon="Twitter"
               biggerSize={true}
               className="transition duration-300 hover:scale-125"
             />
-          </Link>
+          </a>
           <span className="text-[#303030]/[0.3]">8 hours ago</span>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Collab;
+export default Collab

@@ -16,7 +16,7 @@ const HomeView: React.FC = () => {
           <CollabsContainer />
         </div>
       </div>
-      <aside className="sidebar w-[360px]">
+      <aside className="sidebar w-[360px] h-[865px] -translate-y-[70px]">
         <HomeSide />
       </aside>
     </div>

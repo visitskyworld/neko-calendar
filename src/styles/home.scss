@@ -23,3 +23,29 @@
   justify-content: space-between !important;
   top: 50% !important;
 }
+
+.current-date-header {
+  font-size: 18px;
+}
+
+.month-calendar {
+  border: none;
+
+  .badge-cell {
+    background: transparent;
+  }
+
+  .calendar-header-row {
+    height: 8%;
+
+    .calendar-header-cell {
+      font-size: 14px !important;
+    }
+  }
+}
+
+.side-mints-container {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
