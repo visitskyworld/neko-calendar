@@ -4,7 +4,11 @@
 
 @media only screen and (max-width: 1535px) {
   .popular-mints {
-    width: calc(100% - 10px);
+    width: calc(100% - 15px);
+  }
+
+  .collabs-container {
+    width: calc(100% - 15px);
   }
 }
 
@@ -57,5 +61,34 @@
 @media only screen and (max-width: 1051px) {
   .upcoming-mint-h {
     height: calc(100% - 56px) !important;
+  }
+}
+
+@media only screen and (max-width: 1085px) {
+  .home-wrapper {
+    flex-direction: column;
+    overflow-y: auto;
+
+    .home-container {
+      width: 100%;
+      padding-right: 0;
+      flex-shrink: 0;
+    }
+
+    .sidebar {
+      width: 100%;
+      height: auto;
+      transform: translateY(0);
+      margin-top: 24px;
+
+      .user img {
+        width: 250px;
+        height: 250px;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }

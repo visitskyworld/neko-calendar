@@ -16,12 +16,12 @@ const HomeView: React.FC = () => {
 
   return (
     <div className="home-wrapper w-full h-[calc(100%-82px)] flex mt-12">
-      <div className="home-container flex flex-col w-[calc(100%-360px)] pr-12 overflow-y-auto">
-        <div className="flex 2xl:flex-nowrap flex-wrap">
+      <div className="home-container flex flex-col w-[calc(100%-360px)] h-[calc(100%-16px)] pr-12 overflow-y-auto">
+        <div className="flex 2xl:flex-nowrap flex-wrap mints-container">
           <UpcomingMints />
           <PopularMints />
         </div>
-        <div className="h-2/5 mt-3">
+        <div className="h-2/5 mt-3 collabs-container">
           <CollabsContainer />
         </div>
       </div>
