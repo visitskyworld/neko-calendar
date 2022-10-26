@@ -1,39 +1,57 @@
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
-import { Link } from 'react-router-dom';
-import { HiOutlineHome, HiOutlineClipboardList } from 'react-icons/hi';
-import { FaCalendarAlt, FaRegFolderOpen } from 'react-icons/fa';
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router'
+import { Link } from 'react-router-dom'
+import { ReactComponent as HomeIcon } from '../assets/home.svg'
+import { ReactComponent as DBIcon } from '../assets/database.svg'
+import { ReactComponent as CalendarIcon } from '../assets/calendar.svg'
+import { ReactComponent as SheetIcon } from '../assets/spreadsheet.svg'
 
 interface Props {
-  name: string;
-  link: string;
+  name: string
+  link: string
 }
 
 const SidebarItem: React.FC<Props> = ({ name, link }) => {
-  const [hovered, setHovered] = useState<boolean>(false);
-  const [active, setActive] = useState<boolean>(false);
-  const location = useLocation();
+  const [hovered, setHovered] = useState<boolean>(false)
+  const [active, setActive] = useState<boolean>(false)
+  const location = useLocation()
 
   const getIcon = (name: string) => {
     switch (name) {
       case 'home':
-        return <HiOutlineHome size={20} />;
+        return (
+          <div className="w-1/5 flex justify-center">
+            <HomeIcon fill={hovered || active ? '#fff' : '#ae04f6'} />
+          </div>
+        )
       case 'calendar':
-        return <FaCalendarAlt size={20} />;
+        return (
+          <div className="w-1/5 flex justify-center">
+            <CalendarIcon fill={hovered || active ? '#fff' : '#ae04f6'} />
+          </div>
+        )
       case 'spreadsheet':
-        return <HiOutlineClipboardList size={20} />;
+        return (
+          <div className="w-1/5 flex justify-center">
+            <SheetIcon fill={hovered || active ? '#fff' : '#ae04f6'} />
+          </div>
+        )
       case 'database':
-        return <FaRegFolderOpen size={20} />;
+        return (
+          <div className="w-1/5 flex justify-center">
+            <DBIcon fill={hovered || active ? '#fff' : '#ae04f6'} />
+          </div>
+        )
     }
-  };
+  }
 
   useEffect(() => {
     if (location.pathname === link) {
-      setActive(true);
+      setActive(true)
     } else {
-      setActive(false);
+      setActive(false)
     }
-  }, [location]);
+  }, [location])
 
   return (
     <li
@@ -50,10 +68,14 @@ const SidebarItem: React.FC<Props> = ({ name, link }) => {
         }`}
       >
         {getIcon(name)}
-        <span className={`capitalize ${active && '!text-white'}`}>{name}</span>
+        <span
+          className={`capitalize ${active && '!text-white'} w-4/5 font-bold`}
+        >
+          {name}
+        </span>
       </Link>
     </li>
-  );
-};
+  )
+}
 
-export default SidebarItem;
+export default SidebarItem

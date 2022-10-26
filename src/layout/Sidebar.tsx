@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
-import SidebarItem from './SidebarItem';
+import SidebarItem from './SidebarItem'
 
 const listItems = [
   {
@@ -19,17 +19,17 @@ const listItems = [
     name: 'database',
     link: '/database',
   },
-];
+]
 
 const getScreenWidth = () => {
-  const { innerWidth: width } = window;
+  const { innerWidth: width } = window
 
-  return width;
-};
+  return width
+}
 
 const Sidebar: React.FC = () => {
   return (
-    <div className="flex">
+    <div className="w-[260px] flex">
       <aside
         className={`flex flex-col h-screen p-5 bg-[#F5F5F5] shadow w-56 transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in`}
       >
@@ -46,7 +46,7 @@ const Sidebar: React.FC = () => {
               ))}
             </ul>
           </div>
-          <div className="flex items-center justify-around mt-auto mb-8 cursor-pointer transition duration-500 hover:scale-125">
+          <div className="flex items-center justify-around mt-auto mb-8 cursor-pointer">
             <img
               className="w-8 h-8 rounded-full"
               src="/Ellipse.png"
@@ -63,7 +63,7 @@ const Sidebar: React.FC = () => {
         </div>
       </aside>
     </div>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

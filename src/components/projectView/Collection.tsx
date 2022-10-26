@@ -1,13 +1,13 @@
-import React from 'react';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import React from 'react'
+import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
 
-import { NFTData } from '../../ts-generalTypes/InitialStateInterfaces';
-import { CustomLeftArrow, CustomRightArrow } from '../utils/CustomArrow';
+import { NFTData } from '../../ts-generalTypes/InitialStateInterfaces'
+import { CustomLeftArrow, CustomRightArrow } from '../utils/CustomArrow'
 
 type Props = {
-  data: NFTData;
-};
+  data: NFTData
+}
 
 const responsive = {
   xl: {
@@ -45,7 +45,7 @@ const responsive = {
     items: 1,
     slidesToSlide: 1, // optional, default to 1.
   },
-};
+}
 
 const Collection: React.FC<Props> = ({ data }) => {
   return (
@@ -70,11 +70,11 @@ const Collection: React.FC<Props> = ({ data }) => {
                 alt="Media"
               />
             </div>
-          );
+          )
         })}
       </Carousel>
     </div>
-  );
-};
+  )
+}
 
-export default Collection;
+export default Collection

@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { HiChevronUp, HiChevronDown } from 'react-icons/hi';
+import React, { useState } from 'react'
+import { HiChevronUp, HiChevronDown } from 'react-icons/hi'
 
-import { ProjectIcon } from '../utils/Icon';
-import { NFTData } from '../../ts-generalTypes/InitialStateInterfaces';
+import { ProjectIcon } from '../utils/Icon'
+import { NFTData } from '../../ts-generalTypes/InitialStateInterfaces'
 
 type Props = {
-  data: NFTData;
-};
+  data: NFTData
+}
 
 const ReadMore = ({ children }: { children: string }) => {
-  const text = children;
-  const [isReadMore, setIsReadMore] = useState(true);
+  const text = children
+  const [isReadMore, setIsReadMore] = useState(true)
   const toggleReadMore = () => {
-    setIsReadMore(!isReadMore);
-  };
+    setIsReadMore(!isReadMore)
+  }
 
   return (
     <p className="flex flex-col text-sm mb-0 pr-[30%]">
@@ -26,17 +26,17 @@ const ReadMore = ({ children }: { children: string }) => {
         {isReadMore ? <HiChevronDown /> : <HiChevronUp />}
       </span>
     </p>
-  );
-};
+  )
+}
 
 const Details = ({
   value,
   type,
   isLast,
 }: {
-  value: string;
-  type: string;
-  isLast: boolean;
+  value: string
+  type: string
+  isLast: boolean
 }) => {
   return (
     <div className="flex flex-col py-3 px-5 relative">
@@ -46,18 +46,18 @@ const Details = ({
         <div className="absolute h-1/2 right-0 top-[27%] border-[1px] border-[#303030]/[0.1]" />
       )}
     </div>
-  );
-};
+  )
+}
 
 const formatTime = (time: string) => {
   if (parseInt(time) > 12) {
-    const minutes = time.slice(2);
-    const timeFormatted = parseInt(time) - 12;
-    return `${timeFormatted + minutes} PM`;
+    const minutes = time.slice(2)
+    const timeFormatted = parseInt(time) - 12
+    return `${timeFormatted + minutes} PM`
   } else {
-    return `${time} AM`;
+    return `${time} AM`
   }
-};
+}
 
 const ProjectDetails: React.FC<Props> = ({ data }) => {
   return (
@@ -88,7 +88,8 @@ const ProjectDetails: React.FC<Props> = ({ data }) => {
         </div>
         <div className="xl:w-3/12 w-full flex flex-col xl:justify-end xl:items-end items-start mt-4">
           <button className="bg-gradient-to-r from-[#a04ef6] to-[#f64ee5] text-xl text-white font-signika font-medium py-4 px-8 rounded-md mb-5 hover:shadow-[0px_6px_24px_-2px_rgba(0,0,0,0.3)] ease-in-out duration-150">
-            + Add Project
+            <span className="font-normal mr-2">+</span>
+            Add Project
           </button>
           <div className="flex items-center">
             <div className="flex pr-2">
@@ -134,7 +135,7 @@ const ProjectDetails: React.FC<Props> = ({ data }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProjectDetails;
+export default ProjectDetails

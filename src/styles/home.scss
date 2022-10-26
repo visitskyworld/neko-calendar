@@ -24,19 +24,13 @@
   top: 50% !important;
 }
 
-.current-date-header {
-  font-size: 18px;
-}
-
 .month-calendar {
-  border: none;
-
   .badge-cell {
     background: transparent;
   }
 
   .calendar-header-row {
-    height: 8%;
+    height: 12%;
 
     .calendar-header-cell {
       font-size: 14px !important;
@@ -47,5 +41,21 @@
 .side-mints-container {
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+.home-container {
+  .react-multi-carousel-item {
+    width: 258px !important;
+  }
+
+  .upcoming-mint-h {
+    height: calc(100% - 29px);
+  }
+}
+
+@media only screen and (max-width: 1051px) {
+  .upcoming-mint-h {
+    height: calc(100% - 56px) !important;
   }
 }

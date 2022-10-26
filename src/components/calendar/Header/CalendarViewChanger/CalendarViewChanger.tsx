@@ -1,15 +1,15 @@
-import React, { ChangeEvent } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { ChangeEvent } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { changeCalendarView } from '../../../../redux/actions/actionsUI';
-import { selectCurrentCalendarView } from '../../../../redux/selectors';
+import { changeCalendarView } from '../../../../redux/actions/actionsUI'
+import { selectCurrentCalendarView } from '../../../../redux/selectors'
 
 export const CalendarViewChanger = () => {
-  const dispatch = useDispatch();
-  const currentCalendarView = useSelector(selectCurrentCalendarView);
+  const dispatch = useDispatch()
+  const currentCalendarView = useSelector(selectCurrentCalendarView)
   const changeViewHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-    dispatch(changeCalendarView(e.target.value!));
-  };
+    dispatch(changeCalendarView(e.target.value!))
+  }
   return (
     <div className="relative w-full lg:max-w-sm">
       <select
@@ -18,9 +18,6 @@ export const CalendarViewChanger = () => {
         onChange={changeViewHandler}
         value={currentCalendarView}
       >
-        <option value="year" className="text-black">
-          Annually
-        </option>
         <option value="month" className="text-black">
           Monthly
         </option>
@@ -32,5 +29,5 @@ export const CalendarViewChanger = () => {
         </option>
       </select>
     </div>
-  );
-};
+  )
+}

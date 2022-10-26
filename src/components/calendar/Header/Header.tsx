@@ -1,32 +1,32 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { LeftOutlined, RightOutlined } from '@ant-design/icons'
 
-import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary';
-import { CurrentDateHeader } from '../Header/CurrentDateHeader/CurrentDateHeader';
-import { SetTodayHeader } from './SetTodayHeader/SetTodayHeader';
-import { CalendarViewChanger } from './CalendarViewChanger/CalendarViewChanger';
+import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary'
+import { CurrentDateHeader } from '../Header/CurrentDateHeader/CurrentDateHeader'
+import { SetTodayHeader } from './SetTodayHeader/SetTodayHeader'
+import { CalendarViewChanger } from './CalendarViewChanger/CalendarViewChanger'
 import {
   monthReverse,
   monthForward,
-} from '../../../redux/actions/actionsCalendar';
-import { selectCurrentCalendarView } from '../../../redux/selectors';
+} from '../../../redux/actions/actionsCalendar'
+import { selectCurrentCalendarView } from '../../../redux/selectors'
 
 type Props = {
-  isHome?: boolean;
-};
+  isHome?: boolean
+}
 
 const Header: React.FC<Props> = ({ isHome }) => {
-  const dispatch = useDispatch();
-  const currentCalendarView = useSelector(selectCurrentCalendarView);
+  const dispatch = useDispatch()
+  const currentCalendarView = useSelector(selectCurrentCalendarView)
 
   return (
     <div className="w-full h-[50px] relative left-0 right-0 top-0 flex justify-start items-center">
       <ErrorBoundary>
         <div className="w-full flex justify-between">
           {!isHome && <SetTodayHeader />}
-          {currentCalendarView === 'month' && (
-            <div className="mx-auto flex items-center">
+          <div className="mx-auto flex items-center">
+            {currentCalendarView === 'month' && (
               <button
                 className="flex rounded-full border-solid border-[1px] border-white hover:border-black p-3 rounded-md"
                 type="button"
@@ -34,7 +34,9 @@ const Header: React.FC<Props> = ({ isHome }) => {
               >
                 <LeftOutlined />
               </button>
-              <CurrentDateHeader />
+            )}
+            <CurrentDateHeader isHome={isHome ? isHome : false} />
+            {currentCalendarView === 'month' && (
               <button
                 className="flex rounded-full border-solid border-[1px] border-white hover:border-black p-3 rounded-md"
                 type="button"
@@ -42,8 +44,8 @@ const Header: React.FC<Props> = ({ isHome }) => {
               >
                 <RightOutlined />
               </button>
-            </div>
-          )}
+            )}
+          </div>
           {!isHome && (
             <div className="flex justify-end">
               <CalendarViewChanger />
@@ -52,7 +54,7 @@ const Header: React.FC<Props> = ({ isHome }) => {
         </div>
       </ErrorBoundary>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

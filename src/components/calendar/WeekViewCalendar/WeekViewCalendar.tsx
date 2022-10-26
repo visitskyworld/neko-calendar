@@ -1,29 +1,29 @@
-import { useDispatch, useSelector } from 'react-redux';
-import moment from 'moment';
+import { useDispatch, useSelector } from 'react-redux'
+import moment from 'moment'
 
-import getThisWeek from '../../../helpers/getThisWeek';
-import { day_hours } from '../../../helpers/fixtures';
-import { openEventCreatorWindow } from '../../../redux/actions/actionsUI';
-import { setSelectedEventId } from '../../../redux/actions/actionsCalendar';
+import getThisWeek from '../../../helpers/getThisWeek'
+import { day_hours } from '../../../helpers/fixtures'
+import { openEventCreatorWindow } from '../../../redux/actions/actionsUI'
+import { setSelectedEventId } from '../../../redux/actions/actionsCalendar'
 import {
   selectWeekDaysName,
   setListOfEventsInStorage,
-} from '../../../redux/selectors';
-import { CalendarEventData } from '../../../ts-generalTypes/InitialStateInterfaces';
-import { EventInWeekView } from './EventInWeekView';
-import React from 'react';
+} from '../../../redux/selectors'
+import { CalendarEventData } from '../../../ts-generalTypes/InitialStateInterfaces'
+import { EventInWeekView } from './EventInWeekView'
+import React from 'react'
 
 export const WeekViewCalendar = () => {
-  const dispatch = useDispatch();
-  const weekDays = useSelector(selectWeekDaysName);
-  const days = getThisWeek();
-  const currentDay = moment(new Date()).format('ddd');
-  const listOfEventsInStorage = useSelector(setListOfEventsInStorage);
+  const dispatch = useDispatch()
+  const weekDays = useSelector(selectWeekDaysName)
+  const days = getThisWeek()
+  const currentDay = moment(new Date()).format('ddd')
+  const listOfEventsInStorage = useSelector(setListOfEventsInStorage)
   const listOfEventsThisWeek = listOfEventsInStorage?.filter(
     (item: CalendarEventData) => {
-      return moment(item.date).isSame(new Date(), 'week') && item;
+      return moment(item.date).isSame(new Date(), 'week') && item
     }
-  );
+  )
 
   const isEventOnThisDay = (
     eventDate: string,
@@ -31,41 +31,41 @@ export const WeekViewCalendar = () => {
     day: number,
     hour: string
   ) => {
-    const date = new Date(eventDate);
-    const weekDay = date.getDay();
-    const [eventHourStr, eventMeridiem] = eventTime.split(' ');
-    const eventHour = eventHourStr.split(':')[0];
-    const [hourValue, hourMeridiem] = hour.split(' ');
+    const date = new Date(eventDate)
+    const weekDay = date.getDay()
+    const [eventHourStr, eventMeridiem] = eventTime.split(' ')
+    const eventHour = eventHourStr.split(':')[0]
+    const [hourValue, hourMeridiem] = hour.split(' ')
 
     return (
       weekDay === day &&
       eventHour === hourValue &&
       eventMeridiem === hourMeridiem
-    );
-  };
+    )
+  }
 
   const isEventHalfHour = (eventTime: string) => {
-    const halfHour = eventTime.split(' ')[0].split(':')[1];
+    const halfHour = eventTime.split(' ')[0].split(':')[1]
 
-    return !!halfHour;
-  };
+    return !!halfHour
+  }
 
   const clickCellHandler = (day: Date) => (event: React.MouseEvent) => {
-    const date = moment(day).format('YYYY-M-D');
-    const currentTarget = event.target as HTMLDivElement;
+    const date = moment(day).format('YYYY-M-D')
+    const currentTarget = event.target as HTMLDivElement
     if (currentTarget.className.includes('weekly-event')) {
-      dispatch(setSelectedEventId(date));
-      dispatch(openEventCreatorWindow());
+      dispatch(setSelectedEventId(date))
+      dispatch(openEventCreatorWindow())
     } else {
-      return;
+      return
     }
-  };
+  }
 
   return (
     <>
       <div className="w-full h-full flex flex-col mb-2" id="schedule">
         <div className="flex flex-col flex-1 h-full">
-          <div className="sticky top-0 flex flex-col pl-[70px] bg-white z-20">
+          <div className="sticky top-0 flex flex-col pl-[50px] bg-white z-20">
             <div className="flex">
               {weekDays.map((d, idx) => (
                 <div
@@ -136,10 +136,10 @@ export const WeekViewCalendar = () => {
                         .map((event) => ({
                           ...event,
                           isHalf: isEventHalfHour(event.time),
-                        })) ?? [];
+                        })) ?? []
 
-                    const exactEvents = events.filter((event) => !event.isHalf);
-                    const halfEvents = events.filter((event) => event.isHalf);
+                    const exactEvents = events.filter((event) => !event.isHalf)
+                    const halfEvents = events.filter((event) => event.isHalf)
                     return (
                       <div
                         key={`schedule-${hour}`}
@@ -174,7 +174,7 @@ export const WeekViewCalendar = () => {
                             ))}
                         </div>
                       </div>
-                    );
+                    )
                   })}
                 </div>
               ))}
@@ -183,5 +183,5 @@ export const WeekViewCalendar = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
