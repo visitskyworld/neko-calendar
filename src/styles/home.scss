@@ -62,6 +62,16 @@
   }
 }
 
+@media only screen and (min-width: 1803px) and (max-width: 1902px) {
+  .mint {
+    width: 160px;
+
+    & img {
+      height: 160px;
+    }
+  }
+}
+
 @media only screen and (min-width: 1800px) {
   .home-container {
     .react-multi-carousel-item {

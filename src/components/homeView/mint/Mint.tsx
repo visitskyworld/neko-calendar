@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-import { MintData } from '../../../ts-generalTypes/InitialStateInterfaces'
+import { MintData } from '../../../ts-generalTypes/InitialStateInterfaces';
 
 const Mint: React.FC<{ mint: MintData }> = ({ mint }) => {
   return (
     <div className="flex pt-6 mr-5 mb-3">
-      <div className="w-[180px] flex flex-col items-center">
+      <div className="mint 3xl:w-[180px] w-[120px] flex flex-col items-center">
         <img
           src={mint.mint}
-          className="w-full h-[180px] rounded-[20px]"
+          className="w-full 3xl:h-[180px] h-[120px] rounded-[20px]"
           alt="Mint"
         />
         <div className="flex flex-col mt-2 items-center">
@@ -20,7 +20,7 @@ const Mint: React.FC<{ mint: MintData }> = ({ mint }) => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Mint
+export default Mint;
