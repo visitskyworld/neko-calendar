@@ -9,27 +9,52 @@ import { CustomLeftArrow, CustomRightArrow } from '../utils/CustomArrow';
 const CollabsContainer: React.FC = () => {
   const responsive = {
     xl: {
-      breakpoint: { max: 3000, min: 1680 },
+      breakpoint: { max: 3000, min: 1800 },
       items: 5,
       slidesToSlide: 2, // optional, default to 1.
     },
     lg: {
-      breakpoint: { max: 1680, min: 1590 },
+      breakpoint: { max: 1800, min: 1700 },
       items: 4,
       slidesToSlide: 2, // optional, default to 1.
     },
     md: {
-      breakpoint: { max: 1590, min: 1340 },
+      breakpoint: { max: 1700, min: 1480 },
       items: 3,
       slidesToSlide: 2, // optional, default to 1.
     },
     sm: {
-      breakpoint: { max: 1340, min: 1135 },
+      breakpoint: { max: 1480, min: 1240 },
       items: 2,
       slidesToSlide: 1, // optional, default to 1.
     },
     xs: {
-      breakpoint: { max: 1135, min: 0 },
+      breakpoint: { max: 1240, min: 1086 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    collapsed: {
+      breakpoint: { max: 1086, min: 1050 },
+      items: 3,
+      slidesToSlide: 2, // optional, default to 1.
+    },
+    collapsedSm: {
+      breakpoint: { max: 1049, min: 815 },
+      items: 2,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    collapsedXs: {
+      breakpoint: { max: 814, min: 768 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    collapsedLg: {
+      breakpoint: { max: 767, min: 560 },
+      items: 2,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    collapsedMd: {
+      breakpoint: { max: 560, min: 0 },
       items: 1,
       slidesToSlide: 1, // optional, default to 1.
     },
@@ -38,10 +63,12 @@ const CollabsContainer: React.FC = () => {
   return (
     <React.Fragment>
       <span className="text-xl font-semibold">Our collabs</span>
-      <div className="h-[calc(100%-44px)]">
+      <div className="w-full h-[calc(100%-44px)]">
         <Carousel
+          infinite={false}
           swipeable={true}
           draggable={false}
+          containerClass={`w-full`}
           responsive={responsive}
           customLeftArrow={<CustomLeftArrow />}
           customRightArrow={<CustomRightArrow />}

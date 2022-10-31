@@ -1,5 +1,13 @@
-.home-container::-webkit-scrollbar {
-  display: none;
+.home-container {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media only screen and (max-width: 1480px) {
+    .collab {
+      align-self: center;
+    }
+  }
 }
 
 @media only screen and (max-width: 1535px) {
@@ -48,13 +56,17 @@
   }
 }
 
-.home-container {
-  .react-multi-carousel-item {
-    width: 258px !important;
+.home-side {
+  &::-webkit-scrollbar {
+    display: none;
   }
+}
 
-  .upcoming-mint-h {
-    height: calc(100% - 29px);
+@media only screen and (min-width: 1800px) {
+  .home-container {
+    .react-multi-carousel-item {
+      width: 258px !important;
+    }
   }
 }
 

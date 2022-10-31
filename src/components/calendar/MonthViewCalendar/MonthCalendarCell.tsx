@@ -1,55 +1,53 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import uniqid from 'uniqid'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import uniqid from 'uniqid';
 
-import { DayType } from '../../../ts-generalTypes/propTypes'
-import { MonthCalendarEvent } from './MonthCalendarEvent/MonthCalendarEvent'
+import { DayType } from '../../../ts-generalTypes/propTypes';
+import { MonthCalendarEvent } from './MonthCalendarEvent/MonthCalendarEvent';
 import {
   openEventCreatorWindow,
   changeCalendarView,
-} from '../../../redux/actions/actionsUI'
+} from '../../../redux/actions/actionsUI';
 import {
   setSelectedEventId,
   setSelectedDate,
-} from '../../../redux/actions/actionsCalendar'
-import { CalendarEventData } from '../../../ts-generalTypes/InitialStateInterfaces'
-import { setListOfEventsInStorage } from '../../../redux/selectors'
+} from '../../../redux/actions/actionsCalendar';
+import { CalendarEventData } from '../../../ts-generalTypes/InitialStateInterfaces';
+import { setListOfEventsInStorage } from '../../../redux/selectors';
 
 type MonthCalendarCellProps = Pick<
   DayType,
   'id' | 'day' | 'isCurrentMonth' | 'isToday' | 'size'
 > & {
-  children?: JSX.Element
-  isHome?: boolean
-}
+  children?: JSX.Element;
+  isHome?: boolean;
+};
 
 export const MonthCalendarCell: React.FC<MonthCalendarCellProps> = (props) => {
-  const { id, day, isCurrentMonth, isToday, size, isHome } = props
-  const dispatch = useDispatch()
-  const listOfEventsInStorage = useSelector(setListOfEventsInStorage)! || []
+  const { id, day, isCurrentMonth, isToday, size, isHome } = props;
+  const dispatch = useDispatch();
+  const listOfEventsInStorage = useSelector(setListOfEventsInStorage)! || [];
   const listOfEventsThisDay = listOfEventsInStorage.filter(
     (item: CalendarEventData) => item.date === id
-  )
+  );
   const clickOnCellHandler = (event: React.MouseEvent) => {
-    const currentTarget = event.target as HTMLDivElement
+    const currentTarget = event.target as HTMLDivElement;
     if (!isHome && currentTarget.className.includes('badge')) {
-      dispatch(changeCalendarView('day'))
-      dispatch(setSelectedDate(id))
+      dispatch(changeCalendarView('day'));
+      dispatch(setSelectedDate(id));
     }
 
     if (!currentTarget.className.includes('day-cell')) {
-      return
+      return;
     } else {
-      !isHome && dispatch(setSelectedEventId(id))
-      !isHome && dispatch(openEventCreatorWindow())
+      !isHome && dispatch(setSelectedEventId(id));
+      !isHome && dispatch(openEventCreatorWindow());
     }
-  }
-  let uniqueKey = uniqid()
+  };
 
   return (
     <div
       onClick={clickOnCellHandler}
-      key={uniqueKey}
       className={
         size === 'small'
           ? 'day-cell flex-1 w-1/4 items-stretch border-solid border-[1px] border-[rgba(48,48,48,0.1)] overflow-auto font-medium cursor-pointer text-center border-none w-[34px] h-[34px] overflow-hidden font-normal'
@@ -73,9 +71,9 @@ export const MonthCalendarCell: React.FC<MonthCalendarCellProps> = (props) => {
         <div className="badge-cell w-auto h-[2px] bg-[#1192f6] my-0 mx-auto"></div>
       ) : (
         listOfEventsThisDay.map((event: CalendarEventData) => (
-          <MonthCalendarEvent key={uniqueKey} events={event} size={size} />
+          <MonthCalendarEvent key={uniqid()} events={event} size={size} />
         ))
       )}
     </div>
-  )
-}
+  );
+};

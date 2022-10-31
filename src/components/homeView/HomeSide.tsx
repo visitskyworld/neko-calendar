@@ -1,28 +1,28 @@
-import React from 'react'
+import React from 'react';
 
-import { ErrorBoundary } from '../calendar/ErrorBoundary/ErrorBoundary'
-import Header from '../calendar/Header/Header'
-import Calendar from '../calendar/MonthViewCalendar/MonthCalendar'
-import SideMint from './mint/SideMint'
-import { NFTs } from '../../redux/mocked-data'
+import { ErrorBoundary } from '../calendar/ErrorBoundary/ErrorBoundary';
+import Header from '../calendar/Header/Header';
+import Calendar from '../calendar/MonthViewCalendar/MonthCalendar';
+import SideMint from './mint/SideMint';
+import { NFTs } from '../../redux/mocked-data';
 
 const HomeSide: React.FC = () => {
   return (
-    <div className="bg-[#f6f5fa] rounded-[20px] h-full pt-[20px] pb-[25px] px-8">
+    <div className="home-side bg-[#f6f5fa] rounded-[20px] h-full pt-[20px] pb-[25px] px-8 overflow-y-auto">
       <ErrorBoundary>
-        <div className="user flex flex-col items-center mb-3">
+        <div className="user flex flex-col items-center mb-6">
           <img
-            className="w-[140px] h-[140px] rounded-full"
+            className="w-[170px] h-[170px] rounded-full"
             src="/Ellipse.png"
             alt="User Avatar"
           />
-          <span className="text-xl font-semibold mt-2">Elijah Scott</span>
+          <span className="text-xl font-semibold mt-5">Elijah Scott</span>
         </div>
-        <div className="h-[290px] bg-white rounded-[20px] px-6 pt-1">
+        <div className="h-[32%] bg-white rounded-[20px] px-6 pt-1">
           <Header isHome={true} />
           <Calendar size="small" isHome={true} />
         </div>
-        <div className="side-mints-container mt-6 h-[260px]">
+        <div className="side-mints-container mt-6 h-[27%px]">
           <span className="font-semibold text-lg">Your upcoming mints</span>
           {NFTs.slice(0, 3).map((item, index) => (
             <SideMint mint={item} key={`side-${index}`} />
@@ -36,7 +36,7 @@ const HomeSide: React.FC = () => {
         </div>
       </ErrorBoundary>
     </div>
-  )
-}
+  );
+};
 
-export default HomeSide
+export default HomeSide;

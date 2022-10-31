@@ -1,0 +1,12 @@
+.calendar-viewer-changer {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-indent: 50px;
+  text-overflow: '';
+  background: url('../assets/arrow-down.svg') no-repeat;
+
+  &::-ms-expand {
+    display: none;
+  }
+}

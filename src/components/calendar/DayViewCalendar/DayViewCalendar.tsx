@@ -1,92 +1,93 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import moment from 'moment'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import moment from 'moment';
 
-import { openEventCreatorWindow } from '../../../redux/actions/actionsUI'
-import { setSelectedEventId } from '../../../redux/actions/actionsCalendar'
+import { openEventCreatorWindow } from '../../../redux/actions/actionsUI';
+import { setSelectedEventId } from '../../../redux/actions/actionsCalendar';
 
-import { HourCell } from './HourCell'
-import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary'
-import { EventInDayView } from './EventInDayView'
+import { HourCell } from './HourCell';
+import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary';
+import { EventInDayView } from './EventInDayView';
 import {
   selectCurrentSelectedDate,
   setListOfEventsInStorage,
-} from '../../../redux/selectors'
-import { day_hours } from '../../../helpers/fixtures'
+} from '../../../redux/selectors';
+import { day_hours } from '../../../helpers/fixtures';
 
 export const DayViewCalendar = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const currentSelectedDate =
     useSelector(selectCurrentSelectedDate) ||
-    moment(new Date()).format('YYYY-M-D')
-  const listOfEvents = useSelector(setListOfEventsInStorage)
+    moment(new Date()).format('YYYY-M-D');
+  const listOfEvents = useSelector(setListOfEventsInStorage);
   const listOfEventsThisDay = listOfEvents?.filter(
     (event) =>
       moment(event.date).format('YYYY-M-D') ===
       moment(currentSelectedDate).format('YYYY-M-D')
-  )
+  );
   const clickOnCellHandler = (event: React.MouseEvent) => {
-    const currentTarget = event.target as HTMLDivElement
+    const currentTarget = event.target as HTMLDivElement;
     if (currentTarget.className.includes('hour-cell')) {
       dispatch(
         setSelectedEventId(moment(currentSelectedDate).format('YYYY-M-D'))
-      )
-      dispatch(openEventCreatorWindow())
+      );
+      dispatch(openEventCreatorWindow());
     } else {
-      return
+      return;
     }
-  }
+  };
 
   const [eventsWithCoordinates, seteventsWithCoordinates] = React.useState<
     {}[]
-  >([])
+  >([]);
 
   useEffect(() => {
-    const timeSlots = Array.from(document.querySelectorAll('.half-of-an-hour'))
-    const slotWrapper = document.querySelector('.day-events-wrapper')
-    const wrapperCoordinates = slotWrapper?.getBoundingClientRect()
-    const halfHeight = 25
-    let arr: { id: string; top: number }[] = []
+    const timeSlots = Array.from(document.querySelectorAll('.half-of-an-hour'));
+    const halfHeight = 25;
+    let arr: { id: string; top: number }[] = [];
     for (let t of timeSlots) {
-      let coordinates = t.getBoundingClientRect()
-      let id = t.id
+      let offsetTop = (t as HTMLDivElement).offsetTop;
+      let id = t.id;
       arr.push({
         id,
-        top:
-          coordinates.bottom - (wrapperCoordinates?.top ?? 0) - halfHeight / 2,
-      })
+        top: offsetTop - halfHeight / 2,
+      });
     }
     let newArr: any[] = [],
-      topMap: Record<number, number> = {}
+      topMap: Record<number, number> = {};
+
     if (listOfEventsThisDay?.length > 0) {
       listOfEventsThisDay.forEach((item) => {
-        let a = arr.filter((item_a) => item.time === item_a.id)
-        if (topMap[a[0].top] >= 0) {
-          topMap[a[0].top] += 1
-        } else {
-          topMap[a[0].top] = 0
+        let a = arr.filter((item_a) => item.time === item_a.id);
+
+        if (a.length) {
+          if (topMap[a[0].top] >= 0) {
+            topMap[a[0].top] += 1;
+          } else {
+            topMap[a[0].top] = 0;
+          }
+          newArr.push({
+            ...item,
+            x1: a[0].top,
+            x2: a[0].top + halfHeight,
+            idx: topMap[a[0].top],
+          });
         }
-        newArr.push({
-          ...item,
-          x1: a[0].top,
-          x2: a[0].top + halfHeight,
-          idx: topMap[a[0].top],
-        })
-      })
+      });
     }
-    seteventsWithCoordinates(newArr)
-  }, [listOfEvents, currentSelectedDate])
+    seteventsWithCoordinates(newArr);
+  }, [listOfEvents, currentSelectedDate]);
 
   return (
     <div className="day-view-wrapper relative w-full h-[calc(100%-22px)]">
       <ErrorBoundary>
         <div className="data-day-view-wrapper flex flex-col text-black pl-[50px]">
-          <span className="font-bold text-left text-[#a04ef6]">
+          <span className="font-bold text-left text-[#a04ef6] pl-[5px]">
             {moment(new Date(currentSelectedDate)).format('ddd')}
           </span>
           <div className="w-[30px] h-[30px] flex justify-center items-center font-medium text-white rounded-full bg-[#a04ef6]">
-            {moment(new Date(currentSelectedDate)).format('D')}
+            {moment(currentSelectedDate, 'YYYY-MM-DD').format('D')}
           </div>
         </div>
         <div className="relative day-events-wrapper h-[calc(100%-22px)] overflow-y-auto pr-[11px]">
@@ -98,10 +99,10 @@ export const DayViewCalendar = () => {
             />
           ))}
           {listOfEventsThisDay?.length > 0
-            ? eventsWithCoordinates.map((event: any) => (
+            ? eventsWithCoordinates.map((event: any, index) => (
                 <EventInDayView
                   index={event.idx}
-                  key={event}
+                  key={index}
                   top={event.x1}
                   height={event.x2 - event.x1}
                   id={event.uniqueEventId}
@@ -113,5 +114,5 @@ export const DayViewCalendar = () => {
         </div>
       </ErrorBoundary>
     </div>
-  )
-}
+  );
+};

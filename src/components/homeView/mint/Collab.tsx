@@ -1,13 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
 
-import { MintData } from '../../../ts-generalTypes/InitialStateInterfaces'
-import { ColoredIcon } from '../../utils/Icon'
+import { MintData } from '../../../ts-generalTypes/InitialStateInterfaces';
+import { ColoredIcon } from '../../utils/Icon';
 
 const Collab: React.FC<{ collab: MintData }> = ({ collab }) => {
   return (
     <div className="flex flex-col pt-3">
-      <div className="w-[230px] flex flex-col items-center bg-[#f6f5fa] rounded-[20px] transition duration-300 hover:-translate-y-2">
+      <div className="collab w-[230px] flex flex-col items-center bg-[#f6f5fa] rounded-[20px] transition duration-300 hover:-translate-y-2">
         <img
           src={collab.mint}
           className="w-full h-[160px] rounded-[20px] p-1"
@@ -30,7 +29,7 @@ const Collab: React.FC<{ collab: MintData }> = ({ collab }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Collab
+export default Collab;
