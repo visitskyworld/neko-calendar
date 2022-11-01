@@ -60,6 +60,11 @@ export const DayViewCalendar = () => {
     if (listOfEventsThisDay?.length > 0) {
       listOfEventsThisDay.forEach((item) => {
         let a = arr.filter((item_a) => item.time === item_a.id);
+        a.map((item) => {
+          return item.id.includes('30')
+            ? (item.top = item.top + halfHeight - 3)
+            : item.top;
+        });
 
         if (a.length) {
           if (topMap[a[0].top] >= 0) {
@@ -83,7 +88,7 @@ export const DayViewCalendar = () => {
     <div className="day-view-wrapper relative w-full h-[calc(100%-22px)]">
       <ErrorBoundary>
         <div className="data-day-view-wrapper flex flex-col text-black pl-[50px]">
-          <span className="font-bold text-left text-[#a04ef6] pl-[5px]">
+          <span className="font-bold text-left text-[#a04ef6] pl-[2px]">
             {moment(new Date(currentSelectedDate)).format('ddd')}
           </span>
           <div className="w-[30px] h-[30px] flex justify-center items-center font-medium text-white rounded-full bg-[#a04ef6]">

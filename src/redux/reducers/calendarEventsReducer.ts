@@ -31,8 +31,8 @@ const calendarEventsReducer = (
         currentCalendar: createCalendarMatrix(
           undefined,
           undefined,
-          new Date().getUTCMonth(),
-          new Date().getUTCFullYear()
+          new Date().getMonth(),
+          new Date().getFullYear()
         ),
         currentSelectedDate: moment(new Date()).format('YYYY-M-DD'),
       };

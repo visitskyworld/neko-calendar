@@ -1,27 +1,27 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary'
+import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary';
 import {
   selectWeekDaysName,
   selectCurrentCalendar,
   selectCurrentCalendarView,
-} from '../../../redux/selectors'
-import { CalendarHeaderCell } from './CalendarHeaderCell'
-import { MonthCalendarCell } from './MonthCalendarCell'
-import { DayType } from '../../../ts-generalTypes/propTypes'
+} from '../../../redux/selectors';
+import { CalendarHeaderCell } from './CalendarHeaderCell';
+import { MonthCalendarCell } from './MonthCalendarCell';
+import { DayType } from '../../../ts-generalTypes/propTypes';
 
 interface MonthCalendarProps {
-  size: string
-  isHome?: boolean
-  calendarMatrix?: DayType[][]
+  size: string;
+  isHome?: boolean;
+  calendarMatrix?: DayType[][];
 }
 
 const Calendar = ({ size, isHome, calendarMatrix }: MonthCalendarProps) => {
-  const weekDaysName = useSelector(selectWeekDaysName)
-  const currentCalendar = useSelector(selectCurrentCalendar)
-  const calendar = calendarMatrix ? calendarMatrix : currentCalendar!
-  const currentCalendarView = useSelector(selectCurrentCalendarView)
+  const weekDaysName = useSelector(selectWeekDaysName);
+  const currentCalendar = useSelector(selectCurrentCalendar);
+  const calendar = calendarMatrix ? calendarMatrix : currentCalendar!;
+  const currentCalendarView = useSelector(selectCurrentCalendarView);
 
   const renderCalendarWeek = (week: DayType[]) => (
     <div
@@ -42,7 +42,7 @@ const Calendar = ({ size, isHome, calendarMatrix }: MonthCalendarProps) => {
         />
       ))}
     </div>
-  )
+  );
 
   return (
     <div
@@ -79,7 +79,7 @@ const Calendar = ({ size, isHome, calendarMatrix }: MonthCalendarProps) => {
       </ErrorBoundary>
       <ErrorBoundary>{calendar.map(renderCalendarWeek)}</ErrorBoundary>
     </div>
-  )
-}
+  );
+};
 
-export default Calendar
+export default Calendar;

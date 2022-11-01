@@ -5,12 +5,8 @@ import { MintData } from '../../../ts-generalTypes/InitialStateInterfaces';
 const Mint: React.FC<{ mint: MintData }> = ({ mint }) => {
   return (
     <div className="flex pt-6 mr-5 mb-3">
-      <div className="mint 3xl:w-[180px] w-[120px] flex flex-col items-center">
-        <img
-          src={mint.mint}
-          className="w-full 3xl:h-[180px] h-[120px] rounded-[20px]"
-          alt="Mint"
-        />
+      <div className="mint flex flex-col items-center">
+        <img src={mint.mint} className="w-full rounded-[20px]" alt="Mint" />
         <div className="flex flex-col mt-2 items-center">
           <span className="font-semibold text-base">{mint.title}</span>
           <span className="text-[#303030]/[0.5]">{mint.date}</span>
