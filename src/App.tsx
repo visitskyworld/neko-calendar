@@ -3,9 +3,9 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Layout from './layout/Main';
-import CalendarView from './pages/CalendarView';
-import SpreadsheetView from './pages/SpreadsheetView';
-import DatabaseView from './pages/DatabaseView';
+import CalendarView from './pages/calendarView';
+import SpreadsheetView from './pages/spreadsheetView';
+import DatabaseView from './pages/databaseView';
 import HomeView from './pages/HomeView';
 
 import './styles/index.scss';
