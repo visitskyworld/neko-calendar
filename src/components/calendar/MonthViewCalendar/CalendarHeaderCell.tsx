@@ -1,5 +1,5 @@
 import React from 'react';
-import moment, { utc } from 'moment';
+import moment from 'moment';
 export interface CalendarHeaderCellProps {
   id: number;
   day: string;
