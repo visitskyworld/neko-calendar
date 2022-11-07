@@ -28,11 +28,11 @@ const SpreadsheetView: React.FC = () => {
 
     return (
       <p className="flex text-sm mb-0 w-full justify-between">
-        <span className="w-[93%]">
-          {isReadMore ? text.slice(0, 64) + '...' : text}
+        <span className="w-[93%] py-7">
+          {isReadMore ? text.slice(0, 55) + '...' : text}
         </span>
         <span
-          className="cursor-pointer flex items-center font-bold w-[5%] ml-1"
+          className="cursor-pointer flex items-center font-bold w-[24px] ml-1"
           onClick={toggleReadMore}
         >
           {isReadMore ? (
@@ -47,10 +47,14 @@ const SpreadsheetView: React.FC = () => {
 
   const columns: TableColumn<NFTData>[] = [
     {
+      name: '',
+      cell: () => <Star />,
+      width: '15px',
+    },
+    {
       name: 'Project Title',
       cell: (row) => (
         <div className="flex items-center">
-          <Star />
           <span className="font-bold">{row.title}</span>
         </div>
       ),
@@ -119,13 +123,16 @@ const SpreadsheetView: React.FC = () => {
     <div className="flex flex-col w-full h-[calc(100%-50px)]">
       <div className="my-8 flex justify-between">
         <button className="bg-gradient-to-r from-[#a04ef6] to-[#f64ee5] text-white font-medium py-3 px-4 rounded-md mr-2 hover:shadow-[0px_6px_24px_-2px_rgba(0,0,0,0.3)] ease-in-out duration-150">
-          + Add Project
+          <span className="font-normal mr-2">+</span>
+          Add Project
         </button>
-        <button className="px-4 py-3 rounded-xl bg-gradient-to-r from-[#a04ef6] to-[#f64ee5] text-white hover:shadow-[0px_6px_24px_-2px_rgba(0,0,0,0.3)] ease-in-out duration-150">
+        <button className="flex justify-center items-center w-[46px] h-[46px] rounded-lg bg-gradient-to-r from-[#a04ef6] to-[#f64ee5] text-white hover:shadow-[0px_6px_24px_-2px_rgba(0,0,0,0.3)] ease-in-out duration-150">
           <SearchOutlined />
         </button>
       </div>
       <DataTable
+        className="data-table"
+        fixedHeader={true}
         columns={columns}
         data={NFTs}
         pagination

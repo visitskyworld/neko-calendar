@@ -6,6 +6,7 @@ import {
   InstagramOutlined,
   StarOutlined,
   EllipsisOutlined,
+  ShareAltOutlined,
 } from '@ant-design/icons';
 import { AiFillYoutube } from 'react-icons/ai';
 
@@ -95,7 +96,7 @@ export const ColoredIcon: React.FC<ColoredProps> = ({
     Twitter: {
       icon: (
         <TwitterOutlined
-          style={{ fontSize: biggerSize ? '200%' : '100%', color: '#4eaff6' }}
+          style={{ fontSize: biggerSize ? '200%' : '150%', color: '#4eaff6' }}
           className={className}
         />
       ),
@@ -104,7 +105,8 @@ export const ColoredIcon: React.FC<ColoredProps> = ({
       icon: (
         <img
           src="/assets/dribbble.svg"
-          className={`w-[${biggerSize ? '30px' : '15px'}] ${className}`}
+          className={`${biggerSize ? 'w-[30px]' : 'w-[21px]'}
+            ${className ? className : ''}`}
           alt="Dribbble"
         />
       ),
@@ -112,7 +114,7 @@ export const ColoredIcon: React.FC<ColoredProps> = ({
     YouTube: {
       icon: (
         <AiFillYoutube
-          style={{ fontSize: biggerSize ? '200%' : '100%', color: '#f64e4e' }}
+          style={{ fontSize: biggerSize ? '200%' : '150%', color: '#f64e4e' }}
           className={className}
         />
       ),
@@ -120,20 +122,37 @@ export const ColoredIcon: React.FC<ColoredProps> = ({
     Star: {
       icon: (
         <StarOutlined
-          style={{ fontSize: biggerSize ? '200%' : '100%' }}
+          style={{ fontSize: biggerSize ? '200%' : '150%' }}
           className={className}
         />
       ),
     },
     Ellipsis: {
       icon: (
-        <EllipsisOutlined style={{ fontSize: biggerSize ? '200%' : '100%' }} />
+        <EllipsisOutlined style={{ fontSize: biggerSize ? '200%' : '150%' }} />
+      ),
+    },
+    Share: {
+      icon: (
+        <ShareAltOutlined style={{ fontSize: biggerSize ? '200%' : '150%' }} />
+      ),
+    },
+    Message: {
+      icon: (
+        <img
+          src="/assets/message.svg"
+          className={`${biggerSize ? 'w-[30px]' : 'w-[18px]'}
+            ${className ? className : ''}`}
+          alt="message"
+        />
       ),
     },
   };
   return (
     <React.Fragment>
-      <div className="mr-2">{icon && icons[icon].icon}</div>
+      <div className="flex items-center justify-center mr-2">
+        {icon && icons[icon].icon}
+      </div>
     </React.Fragment>
   );
 };

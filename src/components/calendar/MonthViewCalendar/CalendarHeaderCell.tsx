@@ -14,7 +14,7 @@ export const CalendarHeaderCell = ({
   size,
   isHome,
 }: CalendarHeaderCellProps) => {
-  const currentDay = moment(new Date()).format('ddd');
+  const currentDay = moment().format('ddd');
 
   return (
     <div

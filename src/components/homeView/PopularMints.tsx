@@ -16,8 +16,8 @@ const PopularMints: React.FC = () => {
   };
 
   return (
-    <div className="popular-mints 2xl:w-2/5 h-[450px] shrink-0 bg-[#f6f5fa] rounded-[20px] p-[20px] flex flex-col items-center relative">
-      <span className="text-xl font-semibold self-start">
+    <div className="popular-mints 2xl:w-2/5 h-[450px] shrink-0 bg-[#f6f5fa] rounded-[20px] p-[24px] flex flex-col items-center relative">
+      <span className="text-2xl font-semibold self-start pl-[21px]">
         Upcoming popular mints
       </span>
       <div className="flex flex-wrap relative grow">
@@ -30,13 +30,13 @@ const PopularMints: React.FC = () => {
               key: 'mint_' + mintIndex,
               content: (
                 <div
-                  className={`w-[260px] flex flex-col items-center ${
+                  className={`w-[235px] flex flex-col items-center ${
                     isPrev
-                      ? '-rotate-[6deg] scale-[1.35] translate-x-[10%]'
+                      ? '-rotate-[5deg] scale-x-[1.45] scale-y-[1.55] translate-x-[18%] -translate-y-[13%]'
                       : ''
                   } ${
                     isNext
-                      ? 'rotate-[6deg] scale-[1.35] -translate-x-[10%]'
+                      ? 'rotate-[5deg] scale-x-[1.45] scale-y-[1.55] -translate-x-[18%] -translate-y-[13%]'
                       : ''
                   }`}
                 >
@@ -70,16 +70,17 @@ const PopularMints: React.FC = () => {
         <div className="absolute z-[999] top-[35%] -translate-y-1/2 left-0 flex justify-between w-full">
           <CustomLeftArrow
             onClick={handlePrev}
-            className="left-[calc(50%-130px)] -translate-x-1/2"
+            className="left-[calc(50%-115px)] -translate-x-1/2"
           />
           <CustomRightArrow
             onClick={handleNext}
-            className="right-[calc(50%-130px)] translate-x-1/2"
+            className="right-[calc(50%-115px)] translate-x-1/2"
           />
         </div>
       </div>
-      <button className="absolute bottom-0 translate-y-[35px] bg-gradient-to-r from-[#a04ef6] to-[#f64ee5] text-xl text-white font-signika font-medium py-3 px-8 rounded-md mb-5 hover:shadow-[0px_6px_24px_-2px_rgba(0,0,0,0.3)] ease-in-out duration-150 z-[1001]">
-        + Add Project
+      <button className="absolute bottom-0 translate-y-[35px] bg-gradient-to-r from-[#a04ef6] to-[#f64ee5] text-[15px] text-white font-bold py-4 px-7 rounded-md mb-5 hover:shadow-[0px_6px_24px_-2px_rgba(0,0,0,0.3)] ease-in-out duration-150 z-[1001]">
+        <span className="font-normal mr-2">+</span>
+        Add Project
       </button>
     </div>
   );

@@ -1,15 +1,17 @@
 @import './spreadsheet.scss';
 @import './database.scss';
 @import './home.scss';
+@import './calendar.scss';
 
 body {
   font-family: 'Poppins', sans-serif;
+  color: #303030;
 
   a {
     color: #a04ef6;
 
     span {
-      color: #000;
+      color: #303030;
     }
 
     &:hover {
@@ -17,6 +19,80 @@ body {
 
       span {
         color: #fff;
+      }
+    }
+  }
+
+  .sidebar {
+    border: none;
+  }
+
+  .menu-anchor {
+    padding: 0;
+  }
+
+  .setting-icon {
+    fill: #a04ef6;
+  }
+
+  @media only screen and (min-width: 769px) {
+    .menu-anchor {
+      &:hover {
+        border-radius: 10px;
+        background-image: linear-gradient(to right, #a04ef6, #f64ee5);
+      }
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .sidebar-inner {
+      background-color: #a04ef6;
+
+      .menu-item.active {
+        background-color: #fff;
+        background-image: none;
+
+        .sideitem {
+          svg {
+            fill: #a04ef6;
+          }
+
+          .sideitem-name {
+            color: #a04ef6 !important;
+          }
+        }
+      }
+
+      .menu-item {
+        .sideitem {
+          svg {
+            fill: #fff;
+          }
+
+          .sideitem-name {
+            color: #fff !important;
+          }
+        }
+
+        .menu-anchor:hover {
+          border-radius: 10px;
+          background-color: #fff;
+          background-image: none;
+
+          .sideitem {
+            svg {
+              fill: #a04ef6;
+            }
+
+            .sideitem-name {
+              color: #a04ef6 !important;
+            }
+          }
+        }
+      }
+
+      .setting-icon {
+        fill: #fff;
       }
     }
   }

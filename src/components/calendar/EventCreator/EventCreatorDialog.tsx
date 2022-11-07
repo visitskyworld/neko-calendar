@@ -51,7 +51,7 @@ const EventCreatorDialog = () => {
     <Draggable>
       <form
         onSubmit={hadleFormData}
-        className="absolute bottom-[5vh] left-[45vw] flex flex-col w-[400px] p-[50px] min-h-[200px] box-border bg-[#fff] shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-[10px]"
+        className="absolute bottom-[5vh] left-[45vw] flex flex-col w-[400px] p-[50px] min-h-[200px] box-border bg-[#fff] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.3)] rounded-[10px]"
       >
         <span className="event-data font-semibold text-2xl text-center">
           {eventId}

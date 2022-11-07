@@ -44,12 +44,10 @@ export const MonthCalendarCell: React.FC<MonthCalendarCellProps> = (props) => {
       !isHome && dispatch(openEventCreatorWindow());
     }
   };
-  let uniqueKey = uniqid();
 
   return (
     <div
       onClick={clickOnCellHandler}
-      key={uniqueKey}
       className={
         size === 'small'
           ? 'day-cell flex-1 w-1/4 items-stretch border-solid border-[1px] border-[rgba(48,48,48,0.1)] overflow-auto font-medium cursor-pointer text-center border-none w-[34px] h-[34px] overflow-hidden font-normal'
@@ -73,7 +71,7 @@ export const MonthCalendarCell: React.FC<MonthCalendarCellProps> = (props) => {
         <div className="badge-cell w-auto h-[2px] bg-[#1192f6] my-0 mx-auto"></div>
       ) : (
         listOfEventsThisDay.map((event: CalendarEventData) => (
-          <MonthCalendarEvent key={uniqueKey} events={event} size={size} />
+          <MonthCalendarEvent key={uniqid()} events={event} size={size} />
         ))
       )}
     </div>

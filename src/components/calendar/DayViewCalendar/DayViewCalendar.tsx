@@ -44,35 +44,41 @@ export const DayViewCalendar = () => {
 
   useEffect(() => {
     const timeSlots = Array.from(document.querySelectorAll('.half-of-an-hour'));
-    const slotWrapper = document.querySelector('.day-events-wrapper');
-    const wrapperCoordinates = slotWrapper?.getBoundingClientRect();
     const halfHeight = 25;
     let arr: { id: string; top: number }[] = [];
     for (let t of timeSlots) {
-      let coordinates = t.getBoundingClientRect();
+      let offsetTop = (t as HTMLDivElement).offsetTop;
       let id = t.id;
       arr.push({
         id,
-        top:
-          coordinates.bottom - (wrapperCoordinates?.top ?? 0) - halfHeight / 2,
+        top: offsetTop - halfHeight / 2,
       });
     }
     let newArr: any[] = [],
       topMap: Record<number, number> = {};
+
     if (listOfEventsThisDay?.length > 0) {
       listOfEventsThisDay.forEach((item) => {
         let a = arr.filter((item_a) => item.time === item_a.id);
-        if (topMap[a[0].top] >= 0) {
-          topMap[a[0].top] += 1;
-        } else {
-          topMap[a[0].top] = 0;
-        }
-        newArr.push({
-          ...item,
-          x1: a[0].top,
-          x2: a[0].top + halfHeight,
-          idx: topMap[a[0].top],
+        a.map((item) => {
+          return item.id.includes('30')
+            ? (item.top = item.top + halfHeight - 3)
+            : item.top;
         });
+
+        if (a.length) {
+          if (topMap[a[0].top] >= 0) {
+            topMap[a[0].top] += 1;
+          } else {
+            topMap[a[0].top] = 0;
+          }
+          newArr.push({
+            ...item,
+            x1: a[0].top,
+            x2: a[0].top + halfHeight,
+            idx: topMap[a[0].top],
+          });
+        }
       });
     }
     seteventsWithCoordinates(newArr);
@@ -82,10 +88,12 @@ export const DayViewCalendar = () => {
     <div className="day-view-wrapper relative w-full h-[calc(100%-22px)]">
       <ErrorBoundary>
         <div className="data-day-view-wrapper flex flex-col text-black pl-[50px]">
-          <span className="font-bold text-left text-[#a04ef6]">
-            {currentSelectedDate},{' '}
-            {moment(new Date(currentSelectedDate)).format('dddd')}
+          <span className="font-bold text-left text-[#a04ef6] pl-[2px]">
+            {moment(new Date(currentSelectedDate)).format('ddd')}
           </span>
+          <div className="w-[30px] h-[30px] flex justify-center items-center font-medium text-white rounded-full bg-[#a04ef6]">
+            {moment(currentSelectedDate, 'YYYY-MM-DD').format('D')}
+          </div>
         </div>
         <div className="relative day-events-wrapper h-[calc(100%-22px)] overflow-y-auto pr-[11px]">
           {day_hours.map((item, index) => (
@@ -96,10 +104,10 @@ export const DayViewCalendar = () => {
             />
           ))}
           {listOfEventsThisDay?.length > 0
-            ? eventsWithCoordinates.map((event: any) => (
+            ? eventsWithCoordinates.map((event: any, index) => (
                 <EventInDayView
                   index={event.idx}
-                  key={event}
+                  key={index}
                   top={event.x1}
                   height={event.x2 - event.x1}
                   id={event.uniqueEventId}

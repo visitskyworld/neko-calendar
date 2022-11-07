@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
 
-import { NFTData } from '../../../ts-generalTypes/InitialStateInterfaces';
+import { NFTData } from '../../../ts-generalTypes/InitialStateInterfaces'
 
 const SideMint: React.FC<{ mint: NFTData }> = ({ mint }) => {
   return (
-    <div className="flex py-3 mr-3 border-solid border-b-[1px] border-[#303030]/[0.08] last:border-none transition duration-300 hover:scale-[105%]">
+    <div className="flex py-3 mr-3 border-solid border-b-[1px] border-[#303030]/[0.08] last:border-none cursor-pointer">
       <div className="w-full flex justify-between">
         <div className="flex">
           <img
@@ -29,7 +29,7 @@ const SideMint: React.FC<{ mint: NFTData }> = ({ mint }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SideMint;
+export default SideMint

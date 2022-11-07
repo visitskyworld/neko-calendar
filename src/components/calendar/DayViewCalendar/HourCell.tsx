@@ -14,10 +14,10 @@ export const HourCell = ({ time, onClickHandler }: HourCellProps) => {
       onClick={onClickHandler}
     >
       <span className="hour-cell inline p-0 ml-[-50px] translate-y-2/4">
-        {time}
+        {time === '0 AM' ? '12 AM' : time}
       </span>
       <div
-        className="hour-cell half-of-an-hour p-0 m-0 relative border-solid border-[1px] border-[#e5e7eb]"
+        className="hour-cell half-of-an-hour p-0 m-0 relative border-solid border-[1px] border-[#303030]/[0.04]"
         id={time}
       ></div>
       <div

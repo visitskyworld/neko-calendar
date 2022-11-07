@@ -23,10 +23,10 @@ const Calendar: React.FC = () => {
   const currentCalendarView = useSelector(selectCurrentCalendarView);
 
   return (
-    <div className="w-9/12 mt-8 h-[calc(100%-82px)] bg-inherit">
+    <div className="w-full mt-8 h-[calc(100%-82px)] bg-inherit">
       <Header />
       <div
-        className={`w-full h-[calc(100%-82px)] ${
+        className={`w-full h-[calc(100%-60px)] ${
           currentCalendarView === 'day' || currentCalendarView === 'week'
             ? 'p-2 mt-8 border-solid border-[1px] border-[rgba(48,48,48,0.2)] rounded-[20px]'
             : 'py-6 overflow-y-auto'

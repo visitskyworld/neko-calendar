@@ -1,8 +1,8 @@
 import { daysInMonth } from './fixtures';
 import { DayType } from '../ts-generalTypes/propTypes';
 
-let year: number = new Date().getUTCFullYear();
-let month: number = new Date().getUTCMonth();
+let year: number = new Date().getFullYear();
+let month: number = new Date().getMonth();
 
 export const createCalendarMatrix = (
   date = new Date(),
@@ -26,7 +26,7 @@ export const createCalendarMatrix = (
     year++;
   }
 
-  let firstDayOfMonth: number = new Date(year, month, 1).getUTCDay();
+  let firstDayOfMonth: number = new Date(year, month, 1).getDay();
   let numOfDays: number = daysInMonth[month];
 
   let counter: number = 1;

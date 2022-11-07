@@ -115,9 +115,14 @@ export const EventDetailsPopup = () => {
       </div>
       <div className="w-full flex justify-between mb-[15px]">
         <div className="flex">
-          {/* {makeColoredIcon('Share')}
-          {makeColoredIcon('Twitter')}
-          {makeColoredIcon('Dribbble')} */}
+          <ColoredIcon icon="Share" biggerSize={false} />
+          <ColoredIcon icon="Twitter" biggerSize={false} />
+          <ColoredIcon icon="Dribbble" biggerSize={false} />
+          <ColoredIcon
+            icon="Message"
+            biggerSize={false}
+            className={'pt-[2px]'}
+          />
         </div>
         <div className="flex gap-5 cursor-move control-buttons">
           <Button
