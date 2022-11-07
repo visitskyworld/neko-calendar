@@ -70,15 +70,15 @@ const PopularMints: React.FC = () => {
         <div className="absolute z-[999] top-[35%] -translate-y-1/2 left-0 flex justify-between w-full">
           <CustomLeftArrow
             onClick={handlePrev}
-            className="left-[calc(50%-130px)] -translate-x-1/2"
+            className="left-[calc(50%-115px)] -translate-x-1/2"
           />
           <CustomRightArrow
             onClick={handleNext}
-            className="right-[calc(50%-130px)] translate-x-1/2"
+            className="right-[calc(50%-115px)] translate-x-1/2"
           />
         </div>
       </div>
-      <button className="absolute bottom-0 translate-y-[45px] bg-gradient-to-r from-[#a04ef6] to-[#f64ee5] text-[15px] text-white font-bold py-4 px-7 rounded-md mb-5 hover:shadow-[0px_6px_24px_-2px_rgba(0,0,0,0.3)] ease-in-out duration-150 z-[1001]">
+      <button className="absolute bottom-0 translate-y-[35px] bg-gradient-to-r from-[#a04ef6] to-[#f64ee5] text-[15px] text-white font-bold py-4 px-7 rounded-md mb-5 hover:shadow-[0px_6px_24px_-2px_rgba(0,0,0,0.3)] ease-in-out duration-150 z-[1001]">
         <span className="font-normal mr-2">+</span>
         Add Project
       </button>

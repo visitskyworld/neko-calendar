@@ -26,7 +26,7 @@ export const createCalendarMatrix = (
     year++;
   }
 
-  let firstDayOfMonth: number = new Date(year, month, 1).getUTCDay();
+  let firstDayOfMonth: number = new Date(year, month, 1).getDay();
   let numOfDays: number = daysInMonth[month];
 
   let counter: number = 1;

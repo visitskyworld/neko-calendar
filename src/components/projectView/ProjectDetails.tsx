@@ -9,15 +9,21 @@ type Props = {
 };
 
 const ReadMore = ({ children }: { children: string }) => {
+  const width = window.innerWidth;
   const text = children;
   const [isReadMore, setIsReadMore] = useState(true);
+
   const toggleReadMore = () => {
     setIsReadMore(!isReadMore);
   };
 
   return (
     <p className="flex flex-col text-sm mb-0">
-      {isReadMore ? text.slice(0, 78) : text}
+      {isReadMore
+        ? width > 975
+          ? text.slice(0, 78)
+          : text.slice(0, 58)
+        : text}
       <span
         className="cursor-pointer flex items-center font-bold w-24"
         onClick={toggleReadMore}
@@ -85,7 +91,7 @@ const ProjectDetails: React.FC<Props> = ({ data }) => {
                 </span>
               </div>
             </div>
-            <div className="mt-4">
+            <div className="mt-4 pr-5">
               <ReadMore>{data.notes}</ReadMore>
             </div>
           </div>

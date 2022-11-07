@@ -10,7 +10,7 @@ const CollabsContainer: React.FC = () => {
   const responsive = {
     xl: {
       breakpoint: { max: 3000, min: 1800 },
-      items: 5,
+      items: 4,
       slidesToSlide: 2, // optional, default to 1.
     },
     lg: {

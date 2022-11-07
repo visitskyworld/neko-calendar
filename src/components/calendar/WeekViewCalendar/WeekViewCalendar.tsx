@@ -36,14 +36,6 @@ export const WeekViewCalendar = () => {
     const [eventHourStr, eventMeridiem] = eventTime.split(' ');
     const eventHour = eventHourStr.split(':')[0];
     const [hourValue, hourMeridiem] = hour.split(' ');
-    console.log('>>>>>>>>>>>>>', {
-      day,
-      weekDay,
-      eventHour,
-      hourValue,
-      eventMeridiem,
-      hourMeridiem,
-    });
 
     return (
       weekDay === day &&
@@ -113,18 +105,18 @@ export const WeekViewCalendar = () => {
               ))}
             </div>
           </div>
-          <div className="flex flex-1 h-[calc(100%-70px)] overflow-y-auto pt-2">
+          <div className="flex flex-1 h-[calc(100%-70px)] overflow-y-auto pt-[10px]">
             <div className="bg-white left-0 top-0 w-20 min-w-12 w-12 bg-white z-10">
               {day_hours.map((hour, index) => (
                 <div
                   key={`${hour}-${index}`}
-                  className="day-hour font-light text-[15px] h-[60px] text-left"
+                  className="day-hour font-light text-[15px] h-[50px] text-left"
                 >
                   {hour === '0 AM' ? '12 AM' : hour}
                 </div>
               ))}
             </div>
-            <div className="flex flex-1 pl-2 pt-2.5">
+            <div className="flex flex-1 pl-2 pt-3">
               {weekDays.map((day, index) => (
                 <div
                   key={`scheduleline-${day}${index}`}
@@ -151,7 +143,7 @@ export const WeekViewCalendar = () => {
                     return (
                       <div
                         key={`schedule-${hour}`}
-                        className="relative shrink-0 border border-solid border-transparent border-r-zinc-200 border-t-zinc-200 h-[60px]"
+                        className="relative shrink-0 border border-solid border-transparent border-r-zinc-200 border-t-zinc-200 h-[50px]"
                       >
                         <div
                           className="weekly-event h-full"

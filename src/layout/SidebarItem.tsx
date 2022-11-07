@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
+import { MenuItem, useProSidebar } from 'react-pro-sidebar';
+
 import { ReactComponent as HomeIcon } from '../assets/home.svg';
 import { ReactComponent as DBIcon } from '../assets/database.svg';
 import { ReactComponent as CalendarIcon } from '../assets/calendar.svg';
 import { ReactComponent as SheetIcon } from '../assets/spreadsheet.svg';
-
 interface Props {
   name: string;
   link: string;
@@ -15,6 +16,7 @@ const SidebarItem: React.FC<Props> = ({ name, link }) => {
   const [hovered, setHovered] = useState<boolean>(false);
   const [active, setActive] = useState<boolean>(false);
   const location = useLocation();
+  const { toggleSidebar } = useProSidebar();
 
   const getIcon = (name: string) => {
     switch (name) {
@@ -54,29 +56,30 @@ const SidebarItem: React.FC<Props> = ({ name, link }) => {
   }, [location]);
 
   return (
-    <li
-      className={`rounded-md hover:bg-gradient-to-r from-[#a04ef6] to-[#f64ee5] ${
-        active ? 'bg-gradient-to-r from-[#a04ef6] to-[#f64ee5]' : ''
+    <MenuItem
+      className={`rounded-[10px] ${
+        active ? 'active bg-gradient-to-r from-[#a04ef6] to-[#f64ee5]' : ''
       }`}
+      routerLink={<Link to={link} />}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onClick={() => toggleSidebar()}
     >
-      <Link
-        to={link}
-        className={`flex items-center px-4 py-2 space-x-3 ${
-          active ? '!text-white' : ''
+      <div
+        className={`flex items-center px-4 py-2 space-x-3 sideitem ${
+          active ? 'active !text-white' : ''
         }`}
       >
         {getIcon(name)}
         <span
-          className={`capitalize ${
+          className={`capitalize sideitem-name ${
             active ? '!text-white font-bold' : 'font-semibold'
           } w-4/5`}
         >
           {name}
         </span>
-      </Link>
-    </li>
+      </div>
+    </MenuItem>
   );
 };
 

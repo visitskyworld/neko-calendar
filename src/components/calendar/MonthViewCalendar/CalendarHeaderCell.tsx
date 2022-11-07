@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+import moment, { utc } from 'moment';
 export interface CalendarHeaderCellProps {
   id: number;
   day: string;
@@ -14,7 +14,7 @@ export const CalendarHeaderCell = ({
   size,
   isHome,
 }: CalendarHeaderCellProps) => {
-  const currentDay = moment(new Date()).format('ddd');
+  const currentDay = moment().format('ddd');
 
   return (
     <div

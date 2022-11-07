@@ -1,38 +1,38 @@
-import React, { useState } from 'react'
-import DataTable, { TableColumn } from 'react-data-table-component'
-import { SearchOutlined } from '@ant-design/icons'
-import { HiChevronUp, HiChevronDown } from 'react-icons/hi'
+import React, { useState } from 'react';
+import DataTable, { TableColumn } from 'react-data-table-component';
+import { SearchOutlined } from '@ant-design/icons';
+import { HiChevronUp, HiChevronDown } from 'react-icons/hi';
 
-import { NFTs } from '../redux/mocked-data'
-import { NFTData } from '../ts-generalTypes/InitialStateInterfaces'
-import { ColoredIcon } from '../components/utils/Icon'
-import Badge from '../components/utils/Badge'
-import Star from '../components/utils/Star'
+import { NFTs } from '../redux/mocked-data';
+import { NFTData } from '../ts-generalTypes/InitialStateInterfaces';
+import { ColoredIcon } from '../components/utils/Icon';
+import Badge from '../components/utils/Badge';
+import Star from '../components/utils/Star';
 
 const SpreadsheetView: React.FC = () => {
   const start_and_end = (str: string) => {
     if (str.length > 14) {
       return (
         str.substring(0, 6) + '...' + str.substring(str.length - 4, str.length)
-      )
+      );
     }
-    return str
-  }
+    return str;
+  };
 
   const ReadMore = ({ children }: { children: string }) => {
-    const text = children
-    const [isReadMore, setIsReadMore] = useState(true)
+    const text = children;
+    const [isReadMore, setIsReadMore] = useState(true);
     const toggleReadMore = () => {
-      setIsReadMore(!isReadMore)
-    }
+      setIsReadMore(!isReadMore);
+    };
 
     return (
       <p className="flex text-sm mb-0 w-full justify-between">
-        <span className="w-[93%] py-3">
+        <span className="w-[93%] py-7">
           {isReadMore ? text.slice(0, 55) + '...' : text}
         </span>
         <span
-          className="cursor-pointer flex items-center font-bold w-[5%] ml-1"
+          className="cursor-pointer flex items-center font-bold w-[24px] ml-1"
           onClick={toggleReadMore}
         >
           {isReadMore ? (
@@ -42,14 +42,14 @@ const SpreadsheetView: React.FC = () => {
           )}
         </span>
       </p>
-    )
-  }
+    );
+  };
 
   const columns: TableColumn<NFTData>[] = [
     {
       name: '',
       cell: () => <Star />,
-      width: '10px',
+      width: '15px',
     },
     {
       name: 'Project Title',
@@ -109,7 +109,7 @@ const SpreadsheetView: React.FC = () => {
       name: 'Notes',
       cell: (row) => <ReadMore>{row.notes}</ReadMore>,
     },
-  ]
+  ];
 
   const customStyles = {
     rows: {
@@ -117,7 +117,7 @@ const SpreadsheetView: React.FC = () => {
         minHeight: '60px',
       },
     },
-  }
+  };
 
   return (
     <div className="flex flex-col w-full h-[calc(100%-50px)]">
@@ -139,7 +139,7 @@ const SpreadsheetView: React.FC = () => {
         customStyles={customStyles}
       />
     </div>
-  )
-}
+  );
+};
 
-export default SpreadsheetView
+export default SpreadsheetView;

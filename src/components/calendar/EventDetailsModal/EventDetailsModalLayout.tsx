@@ -39,20 +39,20 @@ export const EventDetailsModalLayout = (props: any) => {
 
   return (
     <Draggable>
-      <div className="w-[500px] absolute bottom-[40vh] left-[35vw] z-[999] shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-[10px] bg-white p-5">
+      <div className="w-[500px] absolute bottom-[40vh] left-[35vw] z-[999] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.3)] rounded-[10px] bg-white p-5">
         <div className="w-full flex justify-end items-center mb-[15px] gap-4 cursor-move control-buttons">
           <EditOutlined
             onClick={() => dispatch(makeEventDetailsModalEditable())}
-            className="hover:text-[black]/[0.5]"
+            className="hover:text-[black]/[0.5] text-xl"
           />
           <img
             src={DeleteIcon}
             onClick={deleteEventHandler}
-            className="cursor-pointer hover:text-[#ff4d4f]"
+            className="cursor-pointer hover:text-[#ff4d4f] text-xl"
           />
           <CloseOutlined
             onClick={() => dispatch(closeEventModalPopup())}
-            className="!text-[#f64e4e] hover:!text-[#ff4d4f]"
+            className="!text-[#f64e4e] hover:!text-[#ff4d4f] text-xl"
           />
         </div>
         {children}
